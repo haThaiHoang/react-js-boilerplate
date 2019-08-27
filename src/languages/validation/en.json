@@ -1,7 +1,6 @@
 {
   "validation": {
     "required": "Required",
-    "email": "Email invalid",
-    "uppercase-characters": "Must be uppercase characters"
+    "email": "Email invalid"
   }
 }

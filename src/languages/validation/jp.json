@@ -1,5 +1,6 @@
 {
   "validation": {
-    "required": "Required"
+    "required": "必須",
+    "email": "メールが無効です"
   }
 }

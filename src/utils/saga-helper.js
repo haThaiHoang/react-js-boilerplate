@@ -3,6 +3,7 @@ import { put, select } from 'redux-saga/effects'
 
 import Storage from '@/utils/storage'
 import Notification from '@/utils/notification'
+import { actions } from '@/store/actions'
 
 export default function sagaHelper({ api, successMessage, errorHandler }) {
   return function* ({ type, data, callback }) {
@@ -36,6 +37,7 @@ export default function sagaHelper({ api, successMessage, errorHandler }) {
       ) {
         Storage.remove('ACCESS_TOKEN')
         yield put(push('/login'))
+        yield put(actions.clearStore())
       }
 
       if (errorHandler) {

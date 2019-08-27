@@ -33,14 +33,10 @@ export const BLUE700 = '#1976d2'
 export const BLUE800 = '#1565c0'
 export const BLUE900 = '#0d47a1'
 
-export const PRIMARY = BLUE700
+export const PRIMARY1 = '#0a0f89'
+export const PRIMARY2 = '#00584B'
+export const PRIMARY3 = '#510058'
 export const ACCENT = GRAY500
-export const TEXT = '#212121'
-export const BACKGROUND = GRAY200
-
-export const BLUE_COLOR = '#E0F2F7'
-
-export const RED_COLOR = '#F6CEF5'
 
 // Color utils
 export const darken = (color, value) => tinycolor(color).darken(value).toString()
