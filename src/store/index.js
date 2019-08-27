@@ -6,7 +6,7 @@ import { LocalizeProvider } from 'react-localize-redux'
 import { createBrowserHistory } from 'history'
 import createSagaMiddleware from 'redux-saga'
 
-import Configs from 'app/configs'
+import Configs from '@/configs'
 import createRootReducer from './reducers'
 import sagas from './sagas'
 

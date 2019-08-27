@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 import lodash from 'lodash'
 import * as Yup from 'yup'
 
-import { actions, TYPES } from 'app/store/actions'
-import { Modal, Field, Button, Input, CheckboxGroup, RadioGroup } from 'app/components'
-import { forwardInnerRef } from 'app/utils/high-order-functions'
+import { actions, TYPES } from '@/store/actions'
+import { Modal, Field, Button, Input, CheckboxGroup, RadioGroup } from '@/components'
+import { forwardInnerRef } from '@/utils/high-order-functions'
 
 const validationSchema = Yup.object().shape({
   roleName: Yup.string().trim().required()

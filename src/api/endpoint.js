@@ -1,23 +1,11 @@
-import Request from 'app/utils/request'
-// import Storage from 'app/utils/storage'
-import Configs from 'app/configs'
+import Request from '@/utils/request'
+import Configs from '@/configs'
 
-const endpoint = `${Configs.API_URL}/api`
-const apiKey = Configs.API_KEY
-
-function checkEndpointAuth() {}
-
-Request.registerInterceptor('endpoint-auth', checkEndpointAuth)
+const endpoint = `${Configs.API_URL}`
 
 const MainApi = Request.create({
   endpoint,
-  apiKey,
   handleToken: true
 })
 
-const AuthApi = Request.create({
-  endpoint,
-  apiKey
-})
-
-export { MainApi, AuthApi }
+export { MainApi }

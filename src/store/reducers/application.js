@@ -1,8 +1,8 @@
 import lodash from 'lodash'
 import moment from 'moment'
 
-import { TYPES } from 'app/store/actions'
-import { CHECK_STATUS } from 'app/constants'
+import { TYPES } from '@/store/actions'
+import { CHECK_STATUS } from '@/constants'
 
 const INIT_STATE = {
   loaded: [],

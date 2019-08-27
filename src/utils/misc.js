@@ -1,8 +1,8 @@
 import lodash from 'lodash'
 import moment from 'moment'
 
-import Configs from 'app/configs'
-import { GENDER } from 'app/constants'
+import Configs from '@/configs'
+import { GENDER } from '@/constants'
 
 export default class Misc {
   static trimObjectProperties = (obj, properties) => {

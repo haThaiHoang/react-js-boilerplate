@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { DatePicker, Card, Row, Col } from 'antd'
 import './style.scss'
 
-import { Page, Container, Button, Checkbox } from 'app/components'
+import { Page, Container, Button, Checkbox } from '@/components'
 
 class ExcelOutput extends Component {
   constructor(props) {

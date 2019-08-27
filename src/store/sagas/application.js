@@ -1,9 +1,9 @@
 import { all, takeLatest } from 'redux-saga/effects'
 import lodash from 'lodash'
 
-import Notification from 'app/utils/notification'
-import sagaHelper from 'app/utils/saga-helper'
-import { TYPES } from 'app/store/actions'
+import Notification from '@/utils/notification'
+import sagaHelper from '@/utils/saga-helper'
+import { TYPES } from '@/store/actions'
 import {
   getCountries,
   getApplications,
@@ -11,7 +11,7 @@ import {
   moveApplications,
   sendMailWrongPassport,
   getSendMailLog
-} from 'app/api/application'
+} from '@/api/application'
 
 export default function* watcher() {
   yield all([

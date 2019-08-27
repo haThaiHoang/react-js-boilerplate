@@ -1,6 +1,5 @@
 {
-  "API_URL": "STG_CI_API_URL",
-  "PUBLIC_PATH": "STG_CI_PUBLIC_PATH",
-  "BASE_NAME": "STG_CI_BASE_NAME",
-  "API_KEY": "STG_CI_API_KEY"
+  "API_URL": "",
+  "PUBLIC_PATH": "/",
+  "BASE_NAME": "/"
 }

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
-import 'app/resources/styles'
-import Store from 'app/store'
+import '@/resources/styles'
+import Store from '@/store'
 import Routes from './routes'
 
 function fadePreloading() {

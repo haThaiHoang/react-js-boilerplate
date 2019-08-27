@@ -7,9 +7,9 @@ import { withLocalize } from 'react-localize-redux'
 import { Popconfirm } from 'antd'
 import * as Yup from 'yup'
 
-import Misc from 'app/utils/misc'
-import { actions, TYPES } from 'app/store/actions'
-import { forwardInnerRef } from 'app/utils/high-order-functions'
+import Misc from '@/utils/misc'
+import { actions, TYPES } from '@/store/actions'
+import { forwardInnerRef } from '@/utils/high-order-functions'
 import {
   Modal,
   Button,
@@ -21,7 +21,7 @@ import {
   Checkbox,
   ReadBox,
   ImageViewer
-} from 'app/components'
+} from '@/components'
 
 const UPDATE_LEVEL = {
   LOW: 1,

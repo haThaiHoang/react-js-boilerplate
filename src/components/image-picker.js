@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import { readAsDataURL } from 'app/utils/file-reader'
+import { readAsDataURL } from '@/utils/file-reader'
 import Button from './button'
 
 const Box = styled.div`

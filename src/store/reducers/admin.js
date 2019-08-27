@@ -1,4 +1,4 @@
-import { TYPES } from 'app/store/actions'
+import { TYPES } from '@/store/actions'
 
 const INIT_STATE = {
   loaded: false,

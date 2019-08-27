@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
 import './style.scss'
 
-import { Page, Container, Input, Button, Field } from 'app/components'
+import { Page, Container, Input, Button, Field } from '@/components'
 
 class RegisterTheApplication extends Component {
   _renderForm = ({ handleSubmit, ...form }) => (

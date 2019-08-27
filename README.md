@@ -1,10 +1,10 @@
-# Allied-card Admin Management
+# React Js Boilerplate
 ## BAP IT CO., JSC
 
 ### Environment requirement
 > Operating System: `Ubuntu v18.04`
 >
-> NodeJS: `v10.15.3` 
+> NodeJS: `v10.15.3`
 >
 > NPM: `v6.4.1`
 
@@ -40,4 +40,4 @@
 
 ## License
 
-© 2019-present BAP IT CO., JSC 
+© 2019-present BAP IT CO., JSC

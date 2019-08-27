@@ -5,9 +5,9 @@ import { push } from 'connected-react-router'
 import { withLocalize } from 'react-localize-redux'
 import styled from 'styled-components'
 
-import Storage from 'app/utils/storage'
-import { actions } from 'app/store/actions'
-import { Images, Media } from 'app/theme'
+import Storage from '@/utils/storage'
+import { actions } from '@/store/actions'
+import { Images, Media } from '@/theme'
 
 const HeaderContainer = styled.header`
   width: 100%;

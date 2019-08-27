@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 import { withLocalize } from 'react-localize-redux'
 import { Menu } from 'antd'
 
-import { Images } from 'app/theme'
+import { Images } from '@/theme'
 
 const Box = styled.div`
   width: 0;

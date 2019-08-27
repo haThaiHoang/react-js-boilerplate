@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
 import { connect } from 'react-redux'
 
-import { Modal, Field, Button, Input } from 'app/components'
-import { actions, TYPES } from 'app/store/actions'
-import { forwardInnerRef } from 'app/utils/high-order-functions'
+import { Modal, Field, Button, Input } from '@/components'
+import { actions, TYPES } from '@/store/actions'
+import { forwardInnerRef } from '@/utils/high-order-functions'
 
 @connect(state => ({
   adminStore: state.admin

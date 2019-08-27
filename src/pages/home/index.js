@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.scss'
 
-import { Page, Container } from 'app/components'
+import { Page, Container } from '@/components'
 
 export default () => (
   <Page className="home">

@@ -1,9 +1,5 @@
-import { AuthApi, MainApi } from './endpoint'
+import { MainApi } from './endpoint'
 
 export function login(payload) {
-  return AuthApi.post('/admin/login', payload)
-}
-
-export function getAccountInfo() {
-  return MainApi.get('/admin/get-permission-and-usercode')
+  return MainApi.post('/admin/login', payload)
 }

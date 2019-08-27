@@ -4,9 +4,9 @@ import * as Yup from 'yup'
 import lodash from 'lodash'
 import { connect } from 'react-redux'
 
-import { Modal, Field, Button, Input, Select } from 'app/components'
-import { actions, TYPES } from 'app/store/actions'
-import { forwardInnerRef } from 'app/utils/high-order-functions'
+import { Modal, Field, Button, Input, Select } from '@/components'
+import { actions, TYPES } from '@/store/actions'
+import { forwardInnerRef } from '@/utils/high-order-functions'
 
 const ADMIN_STATUS = [
   { value: 'ACTIVE', name: 'ACTIVE' },

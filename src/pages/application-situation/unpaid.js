@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import moment from 'moment'
 
-import Misc from 'app/utils/misc'
-import { actions, TYPES } from 'app/store/actions'
-import { Table, PaginationBar, Column } from 'app/components'
+import Misc from '@/utils/misc'
+import { actions, TYPES } from '@/store/actions'
+import { Table, PaginationBar, Column } from '@/components'
 
 const getDateFormat = timestamp => moment(timestamp).format('YYYY-MM-DD')
 

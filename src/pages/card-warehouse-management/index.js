@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Icon } from 'antd'
 import './style.scss'
 
-import { Page, Container, Table, PaginationBar, Button, Select, Input, Checkbox } from 'app/components'
+import { Page, Container, Table, PaginationBar, Button, Select, Input, Checkbox } from '@/components'
 import ImportCardModal from './import-card-modal'
 import ChangeCardModal from './change-card-modal'
 

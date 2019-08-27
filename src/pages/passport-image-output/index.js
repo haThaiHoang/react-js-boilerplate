@@ -3,7 +3,7 @@ import { Formik, Form } from 'formik'
 import { Icon } from 'antd'
 import './style.scss'
 
-import { Page, Container, Input, Button, Field } from 'app/components'
+import { Page, Container, Input, Button, Field } from '@/components'
 
 class PassportImageOutput extends Component {
   _renderForm = ({ handleSubmit, ...form }) => (

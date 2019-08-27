@@ -1,3 +1,3 @@
-export JP_FLAG from 'app/resources/images/jp-flag.png'
-export EN_FLAG from 'app/resources/images/en-flag.png'
-export LOGO from 'app/resources/images/logo.png'
+export JP_FLAG from '@/resources/images/jp-flag.png'
+export EN_FLAG from '@/resources/images/en-flag.png'
+export LOGO from '@/resources/images/logo.png'

@@ -1,5 +1,5 @@
 import lodash from 'lodash'
-import Storage from 'app/utils/storage'
+import Storage from '@/utils/storage'
 
 // eslint-disable-next-line no-underscore-dangle
 let _requests = 0

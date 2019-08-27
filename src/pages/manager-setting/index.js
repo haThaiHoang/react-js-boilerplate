@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './style.scss'
 
-import { Page, Container, Table, Button } from 'app/components'
-import { actions, TYPES } from 'app/store/actions'
+import { Page, Container, Table, Button } from '@/components'
+import { actions, TYPES } from '@/store/actions'
 import EditMemberModal from './edit-member-modal'
 import DeleteMemberModal from './delete-member-modal'
 

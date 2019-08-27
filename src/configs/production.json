@@ -1,6 +1,5 @@
 {
-  "API_URL": "PRD_CI_API_URL",
-  "PUBLIC_PATH": "PRD_CI_PUBLIC_PATH",
-  "BASE_NAME": "PRD_CI_BASE_NAME",
-  "API_KEY": "PRD_CI_API_KEY"
+  "API_URL": "",
+  "PUBLIC_PATH": "/",
+  "BASE_NAME": "/"
 }

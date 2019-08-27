@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Icon } from 'antd'
 
-import { Modal, Button } from 'app/components'
+import { Modal, Button } from '@/components'
 
 class ImportCardModal extends Component {
   state = {

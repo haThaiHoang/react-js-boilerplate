@@ -1,8 +1,8 @@
 import { all, takeLatest } from 'redux-saga/effects'
 
-import sagaHelper from 'app/utils/saga-helper'
-import { TYPES } from 'app/store/actions'
-import { getBusinessSystem } from 'app/api/business-system'
+import sagaHelper from '@/utils/saga-helper'
+import { TYPES } from '@/store/actions'
+import { getBusinessSystem } from '@/api/business-system'
 
 export default function* watcher() {
   yield all([

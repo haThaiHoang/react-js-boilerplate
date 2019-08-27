@@ -4,12 +4,12 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { withLocalize } from 'react-localize-redux'
 import * as Yup from 'yup'
 
-import Storage from 'app/utils/storage'
-import errorMessagesEN from 'app/languages/error-messages/en.json'
-import errorMessagesJP from 'app/languages/error-messages/jp.json'
-import validationEN from 'app/languages/validation/en.json'
-import validationJP from 'app/languages/validation/jp.json'
-import { actions } from 'app/store/actions'
+import Storage from '@/utils/storage'
+import errorMessagesEN from '@/languages/error-messages/en.json'
+import errorMessagesJP from '@/languages/error-messages/jp.json'
+import validationEN from '@/languages/validation/en.json'
+import validationJP from '@/languages/validation/jp.json'
+import { actions } from '@/store/actions'
 
 Yup.setLocale({
   mixed: {

@@ -4,10 +4,10 @@ import * as Yup from 'yup'
 import { connect } from 'react-redux'
 import './style.scss'
 
-import Storage from 'app/utils/storage'
-import { Images } from 'app/theme'
-import { TYPES, actions } from 'app/store/actions'
-import { Container, Input, Button, Page, Field } from 'app/components'
+import Storage from '@/utils/storage'
+import { Images } from '@/theme'
+import { TYPES, actions } from '@/store/actions'
+import { Container, Input, Button, Page, Field } from '@/components'
 
 const validationSchema = Yup.object().shape({
   userCode: Yup.string().required(),

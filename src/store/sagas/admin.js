@@ -1,8 +1,8 @@
 import { all, takeLatest } from 'redux-saga/effects'
 
-import sagaHelper from 'app/utils/saga-helper'
-import { TYPES } from 'app/store/actions'
-import { getAllAdmin, deleteAdmin, addSubAdmin, updateAdmin } from 'app/api/admin'
+import sagaHelper from '@/utils/saga-helper'
+import { TYPES } from '@/store/actions'
+import { getAllAdmin, deleteAdmin, addSubAdmin, updateAdmin } from '@/api/admin'
 
 export default function* watcher() {
   yield all([

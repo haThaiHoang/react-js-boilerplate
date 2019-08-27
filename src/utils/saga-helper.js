@@ -1,8 +1,8 @@
 import { push } from 'connected-react-router'
 import { put, select } from 'redux-saga/effects'
 
-import Storage from 'app/utils/storage'
-import Notification from 'app/utils/notification'
+import Storage from '@/utils/storage'
+import Notification from '@/utils/notification'
 
 export default function sagaHelper({ api, successMessage, errorHandler }) {
   return function* ({ type, data, callback }) {
