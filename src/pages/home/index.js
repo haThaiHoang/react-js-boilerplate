@@ -1,15 +1,21 @@
 import React from 'react'
-import './style.scss'
+import styled from 'styled-components'
 
 import Page from '@/components/page'
 import Container from '@/components/container'
 
+const Content = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 export default () => (
-  <Page className="home">
+  <Page>
     <Container>
-      <div className="content">
+      <Content>
         <h1>Welcome</h1>
-      </div>
+      </Content>
     </Container>
   </Page>
 )

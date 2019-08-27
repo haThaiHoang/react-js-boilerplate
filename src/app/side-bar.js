@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { withLocalize } from 'react-localize-redux'
-// import { Menu } from 'antd'
 
 const Box = styled.div`
   width: 0;
@@ -61,7 +60,7 @@ const MENU_ITEMS = [{
 
 @withRouter
 @withLocalize
-@connect(state => ({
+@connect((state) => ({
   accountStore: state.account,
   uiStore: state.ui
 }))
@@ -70,12 +69,6 @@ class SideBar extends Component {
   _onMenuItemSelect = (e) => {
     this.props.history.push(e.key)
   }
-
-  // _renderMenuItems = item => (
-  //   <Menu.Item key={item.link}>
-  //     <span>{item.name}</span>
-  //   </Menu.Item>
-  // )
 
   render() {
     const { uiStore } = this.props

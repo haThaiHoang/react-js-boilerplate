@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
 import { connect } from 'react-redux'
 import { object, string } from 'yup'
-import './style.scss'
+import styled from 'styled-components'
 
 import Storage from '@/utils/storage'
 import { Images } from '@/theme'
@@ -13,12 +13,58 @@ import Button from '@/components/button'
 import Page from '@/components/page'
 import Field from '@/components/field'
 
+const Content = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  .form {
+    padding: 40px;
+    box-shadow: 0 12px 201px 0 rgba(0, 0, 0, 0.06);
+    width: 440px;
+    border-radius: 4px;
+    background-color: white;
+
+    .logo {
+      max-width: 300px;
+      margin: 0 auto;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 30px;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .field-group {
+      > * {
+        margin-bottom: 9px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .action-box {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+  }
+`
+
 const validationSchema = object().shape({
   userCode: string().required(),
   password: string().required()
 })
 
-@connect(state => ({
+@connect((state) => ({
   accountStore: state.account
 }), {
   login: actions.login,
@@ -92,16 +138,18 @@ class Login extends Component {
     }
 
     return (
-      <Page className="login">
-        <Container className="content">
-          <Formik
-            validateOnChange={false}
-            validateOnBlur={false}
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={this._onSubmit}
-            component={this._renderForm}
-          />
+      <Page>
+        <Container>
+          <Content>
+            <Formik
+              validateOnChange={false}
+              validateOnBlur={false}
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={this._onSubmit}
+              component={this._renderForm}
+            />
+          </Content>
         </Container>
       </Page>
     )
