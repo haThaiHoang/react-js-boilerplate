@@ -7,7 +7,7 @@ import styled from 'styled-components'
 
 import Storage from '@/utils/storage'
 import { actions } from '@/store/actions'
-import { Images, Media } from '@/theme'
+import { Images } from '@/theme'
 
 const HeaderContainer = styled.header`
   width: 100%;
@@ -109,10 +109,6 @@ const HeaderContainer = styled.header`
 
     }
   }
-
-  ${Media.lessThan('md')`
-    padding: 0;
-  `}
 `
 
 @withLocalize
@@ -145,7 +141,7 @@ class Header extends Component {
               className="menu-button"
               type="menu"
             />
-            <p className="title">Card System Management</p>
+            <p className="title">React JS Boilerplate</p>
           </div>
           <div className="right-box">
             {accountStore.userCode && (

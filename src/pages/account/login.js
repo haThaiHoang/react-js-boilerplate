@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
-import * as Yup from 'yup'
 import { connect } from 'react-redux'
+import { object, string } from 'yup'
 import './style.scss'
 
 import Storage from '@/utils/storage'
 import { Images } from '@/theme'
 import { TYPES, actions } from '@/store/actions'
-import { Container, Input, Button, Page, Field } from '@/components'
+import Container from '@/components/container'
+import Input from '@/components/input'
+import Button from '@/components/button'
+import Page from '@/components/page'
+import Field from '@/components/field'
 
-const validationSchema = Yup.object().shape({
-  userCode: Yup.string().required(),
-  password: Yup.string().required()
+const validationSchema = object().shape({
+  userCode: string().required(),
+  password: string().required()
 })
 
 @connect(state => ({

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './style.scss'
 
-import { Container } from '@/components'
+import Container from '@/components/container'
 
 export default class NotFound extends Component {
   _onClick = () => {
