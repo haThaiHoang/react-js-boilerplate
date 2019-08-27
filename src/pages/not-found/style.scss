@@ -1,0 +1,23 @@
+@import 'src/resources/styles/mixin';
+
+.not-found {
+  .content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 75vh;
+  }
+
+  .title {
+    font-size: 100px;
+    font-weight: bold;
+  }
+
+  .subtitle {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}

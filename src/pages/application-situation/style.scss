@@ -1,0 +1,331 @@
+@import 'src/resources/styles/mixin';
+
+.application-situation {
+  .tool-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.34px;
+      color: #121212;
+      text-transform: uppercase;
+    }
+
+    .right-box {
+      display: flex;
+
+      .search-type {
+        width: 200px;
+      }
+
+      .search-input {
+        width: 435px;
+        border: solid 1px #efc3ab;
+      }
+
+      > * {
+        margin-right: 15px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .cell-edit-button {
+    background-color: #000;
+    border-radius: 3px;
+    color: white;
+    padding: 3px;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.2s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &:active {
+      opacity: 1;
+    }
+  }
+
+  .top-action-box {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .button-group {
+      display: flex;
+
+      > * {
+        margin-right: 20px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .bottom-action-box {
+    margin-top: 20px;
+    display: flex;
+  }
+
+  .printing-box {
+    padding: 34px 40px 21px;
+    border-radius: 4px;
+    box-shadow: 0 8px 35px 0 rgba(0, 0, 0, 0.04);
+    background-color: #fff;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    .left {
+      p {
+        font-size: 15px;
+        line-height: 2.2;
+        letter-spacing: 0.02px;
+        color: #4f4f4f;
+
+        b {
+          font-size: 18px;
+          font-weight: 700;
+          color: #3c3c3c;
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      .ant-checkbox-wrapper {
+        margin-bottom: 20px;
+
+        span {
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+
+      .button-group {
+        > * {
+          margin-right: 20px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .paid-uncheck {
+    .top-action-box {
+      .button-group {
+        align-items: center;
+
+        .ant-checkbox-inner {
+          width: 20px;
+          height: 20px;
+        }
+
+        .ant-checkbox-wrapper {
+          .ant-checkbox {
+            .ant-checkbox-inner {
+              width: 20px;
+              height: 20px;
+
+              &::after {
+                top: 44%;
+                width: 6.714286px;
+                height: 12.142857px;
+              }
+            }
+
+            &.ant-checkbox-checked {
+              .ant-checkbox-inner {
+                background-color: #f47629;
+                border-color: #f47629;
+              }
+            }
+
+            .ant-checkbox-input:focus + .ant-checkbox-inner,
+            .ant-checkbox-wrapper:hover .ant-checkbox-inner,
+            .ant-checkbox:hover .ant-checkbox-inner {
+              border-color: #f47629;
+            }
+
+            &.ant-checkbox-indeterminate .ant-checkbox-inner::after {
+              background-color: #f47629;
+              width: 10px;
+              height: 10px;
+              top: 50%;
+            }
+          }
+        }
+      }
+    }
+
+    .ant-table-row td {
+      .is-check {
+        padding: 3px 6px;
+        font-weight: 500;
+        font-size: 14px;
+        border-radius: 3px;
+      }
+
+      .checked {
+        border: 1px solid #f3b083;
+        color: #f3b083;
+      }
+
+      .not-check {
+        border: 1px solid #9cc2e5;
+        color: #9cc2e5;
+      }
+    }
+  }
+}
+
+.paid-uncheck-modal {
+  .ant-modal-content {
+    .ant-modal-body {
+      padding-top: 0;
+    }
+  }
+}
+
+.option-check {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.option-check.not-check {
+  background-color: #5b9bd5;
+}
+
+.option-check.checked {
+  background-color: #fec002;
+}
+
+.update-application-modal {
+  .ant-modal-header {
+    margin-bottom: 40px;
+  }
+
+  .ant-modal-body {
+    border-top: 2px solid #005398;
+  }
+
+  .horizontal-box {
+    display: flex;
+    height: 100%;
+
+    .form {
+      overflow: auto;
+      height: 100%;
+      flex: 3;
+      min-width: 0;
+
+      .divider {
+        height: 50px;
+        background-color: #005398;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0.43px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 0 40px;
+      }
+
+      .field-group {
+        padding: 30px 40px 40px;
+
+        > * {
+          margin-bottom: 20px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        .field {
+          .label {
+            width: 180px;
+          }
+        }
+
+        .passport-action-box {
+          display: flex;
+          justify-content: flex-end;
+
+          > * {
+            margin-right: 5px;
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+
+        .send-log-box {
+          border: 1px solid #005398;
+          padding: 20px;
+
+          p {
+            margin-bottom: 5px;
+
+            span {
+              font-weight: 500;
+            }
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+
+      .action-box {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+
+        .row {
+          margin-bottom: 30px;
+
+          &:last-child {
+            margin-bottom: 20px;
+          }
+
+          > * {
+            margin-right: 20px;
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .passport-view-box {
+      background-color: rgba(0, 83, 152, 0.1);
+      flex: 2;
+    }
+  }
+}

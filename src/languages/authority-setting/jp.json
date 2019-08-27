@@ -1,0 +1,6 @@
+{
+  "error-messages": {
+    "USER_NOT_FOUND": "User not found",
+    "PASSWORD_IS_INCORRECT": "Password is incorrect"
+  }
+}

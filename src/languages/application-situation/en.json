@@ -1,0 +1,28 @@
+{
+  "authority-setting": {
+    "update-application-modal": {
+      "fields": {
+        "field-4": "Gender",
+        "field-4-options": {
+          "option-1": "Male",
+          "option-2": "Female",
+          "option-3": "NotApplicable"
+        },
+        "field-5": "Title",
+        "field-5-options": {
+          "option-1": "Mr",
+          "option-2": "Miss",
+          "option-3": "Ms",
+          "option-4": "Mrs",
+          "option-5": "NotApplicable"
+        },
+        "field-22": "Family Status",
+        "field-22-options": {
+          "option-1": "Married",
+          "option-2": "Single",
+          "option-3": "NotApplicable"
+        }
+      }
+    }
+  }
+}

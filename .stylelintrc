@@ -1,0 +1,9 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "at-rule-no-unknown": [true, {
+      "ignoreAtRules": ["mixin", "if", "content", "else", "include"],
+    }],
+    "no-descending-specificity": null
+  }
+}

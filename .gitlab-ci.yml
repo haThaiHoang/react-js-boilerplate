@@ -1,0 +1,58 @@
+image: node:10.16.0
+
+stages:
+  - build
+  - deploy
+
+build-develop:
+  stage: deploy
+  before_script:
+    - apt update -y
+    - apt install rsync -y
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo -e "$CI_DEV_SSH_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+
+  script:
+    - sed -i "s~DEV_CI_API_URL~$DEV_CI_API_URL~g" src/configs/development.json
+    - sed -i "s~DEV_CI_PUBLIC_PATH~$DEV_CI_PUBLIC_PATH~g" src/configs/development.json
+    - sed -i "s~DEV_CI_BASE_NAME~$DEV_CI_BASE_NAME~g" src/configs/development.json
+    - sed -i "s~DEV_CI_API_KEY~$DEV_CI_API_KEY~g" src/configs/development.json
+
+    - npm install && npm run build:development
+
+    - rsync -hrz --delete . centos@172.31.29.183:/srv/admin-management-frontend/
+
+  only:
+    - develop
+  tags:
+    - dev
+
+build-stg:
+  stage: deploy
+  before_script:
+    - apt update -y
+    - apt install rsync -y
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo -e "$CI_STG_SSH_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+
+  script:
+    - sed -i "s~STG_CI_API_URL~$STG_CI_API_URL~g" src/configsstaging.json
+    - sed -i "s~STG_CI_PUBLIC_PATH~$STG_CI_PUBLIC_PATH~g" src/configs/staging.json
+    - sed -i "s~STG_CI_BASE_NAME~$STG_CI_BASE_NAME~g" src/configs/staging.json
+    - sed -i "s~STG_CI_API_KEY~$STG_CI_API_KEY~g" src/configs/staging.json
+    - sed -i "s~STG_CI_SGP_EXCHANGE_URL~$STG_CI_SGP_EXCHANGE_URL~g" src/configs/staging.json
+
+    - npm install && npm run build:staging
+
+    - rsync -hrz --delete . centos@172.31.24.137:/srv/admin-management-frontend/
+
+  only:
+    - staging
+  tags:
+    - stg
