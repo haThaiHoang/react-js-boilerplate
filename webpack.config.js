@@ -37,6 +37,11 @@ module.exports = (env) => {
         chunks: 'all'
       }
     },
+    resolve: {
+      alias: {
+        "@ant-design/icons/lib/dist$": path.resolve(__dirname, "src/overwrite/antd-icons")
+      }
+    },
     module: {
       rules: [{
         test: /\.js$/,
@@ -75,19 +80,23 @@ module.exports = (env) => {
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'src/index.ejs')
       }),
+      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       new FaviconsWebpackPlugin({
         logo: path.resolve(__dirname, 'src/resources/images/favicon.png'),
-        icons: {
-          android: false,
-          appleIcon: false,
-          appleStartup: false,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          opengraph: false,
-          twitter: false,
-          yandex: false,
-          windows: false
+        cache: true,
+        favicons: {
+          icons: {
+            android: false,
+            appleIcon: false,
+            appleStartup: false,
+            coast: false,
+            favicons: true,
+            firefox: true,
+            opengraph: false,
+            twitter: false,
+            yandex: false,
+            windows: false
+          }
         }
       }),
       new MiniCssExtractPlugin(),

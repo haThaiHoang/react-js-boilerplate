@@ -58,32 +58,6 @@ const HeaderContainer = styled.header`
       display: flex;
       align-items: center;
 
-      .user-box {
-        display: flex;
-        align-items: center;
-        margin-right: 37px;
-        cursor: pointer;
-        user-select: none;
-
-        .avatar {
-          width: 34px;
-          height: 34px;
-          border-radius: 50%;
-          margin-right: 20px;
-        }
-
-        .name {
-          font-size: 16px;
-          letter-spacing: 0.21px;
-          margin-bottom: 0;
-          margin-right: 10px;
-        }
-
-        .anticon {
-          font-size: 12px;
-        }
-      }
-
       .flags {
         .flag {
           width: 35px;
@@ -144,24 +118,6 @@ class Header extends Component {
             <p className="title">React JS Boilerplate</p>
           </div>
           <div className="right-box">
-            {accountStore.userCode && (
-              <Popover
-                content={(
-                  <a href="/" onClick={this._onLogout}>Logout</a>
-                )}
-                trigger="click"
-              >
-                <div className="user-box">
-                  {/* <img
-                    className="avatar"
-                    src="https://image-us.eva.vn/upload/2-2019/images/2019-04-24/ra-mv-moi-chipu-thi-dep-that-nhung-fan-chi-chu-y-den-chiec-luoc-chai-chay-f1e397547b12924ccb03-1556124078-242-width1000height1000.jpg"
-                    alt=""
-                  /> */}
-                  <p className="name">{accountStore.userCode}</p>
-                  <Icon type="down" />
-                </div>
-              </Popover>
-            )}
             <div className="flags">
               {languages.map(language => (
                 <img

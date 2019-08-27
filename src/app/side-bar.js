@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { withLocalize } from 'react-localize-redux'
-import { Menu } from 'antd'
+// import { Menu } from 'antd'
 
 const Box = styled.div`
   width: 0;
@@ -71,18 +71,18 @@ class SideBar extends Component {
     this.props.history.push(e.key)
   }
 
-  _renderMenuItems = item => (
-    <Menu.Item key={item.link}>
-      <span>{item.name}</span>
-    </Menu.Item>
-  )
+  // _renderMenuItems = item => (
+  //   <Menu.Item key={item.link}>
+  //     <span>{item.name}</span>
+  //   </Menu.Item>
+  // )
 
   render() {
     const { uiStore } = this.props
 
     return (
       <Box className={uiStore.isSideBarOpen ? 'open' : ''}>
-        <div className="surfing-box">
+        {/* <div className="surfing-box">
           <Menu
             onClick={this._onMenuItemSelect}
             defaultSelectedKeys={[this.props.location.pathname]}
@@ -90,7 +90,7 @@ class SideBar extends Component {
           >
             {MENU_ITEMS.map(this._renderMenuItems)}
           </Menu>
-        </div>
+        </div> */}
       </Box>
     )
   }
