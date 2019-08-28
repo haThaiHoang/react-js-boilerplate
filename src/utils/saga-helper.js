@@ -31,11 +31,8 @@ export default function sagaHelper({ api, successMessage, errorHandler }) {
       const languageIndex = localize.languages[0].active ? 0 : 1
       const getLocalizeErrorMessages = (name) => (localize.translations[`error-messages.${name}`] || [])[languageIndex]
 
-      if (
-        e.name === 'TOKEN_EXPIRED'
-        || e.name === 'PERMISSION_DENIED'
-      ) {
-        Storage.remove('ACCESS_TOKEN')
+      if (e.name === 'TOKEN_EXPIRED') {
+        Storage.clear()
         yield put(push('/login'))
         yield put(actions.clearStore())
       }

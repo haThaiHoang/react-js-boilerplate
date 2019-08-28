@@ -6,6 +6,7 @@
     "node": true
   },
   "rules": {
+    "react/state-in-constructor": 0,
     "no-case-declarations": 0,
     "no-nested-ternary": 0,
     "prefer-const": 0,

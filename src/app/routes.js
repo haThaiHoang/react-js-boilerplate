@@ -38,23 +38,25 @@ class Routes extends Component {
   _renderLazyComponent = (LazyComponent, params) => (props) => <LazyComponent {...props} {...params} />
 
   _renderAuthRoutes = () => (
-    <HorizontalBox>
-      <SideBar />
-      <Suspense fallback={<Page sidebar><Loading /></Page>}>
-        <Switch>
-          <Route exact path="/" component={this._renderLazyComponent(Home)} />
-          <Route exact path="/settings" component={this._renderLazyComponent(Settings)} />
-          <Redirect to="/not-found" />
-        </Switch>
-      </Suspense>
-    </HorizontalBox>
+    <>
+      <Header />
+      <HorizontalBox>
+        <SideBar />
+        <Suspense fallback={<Page sidebar><Loading /></Page>}>
+          <Switch>
+            <Route exact path="/" component={this._renderLazyComponent(Home)} />
+            <Route exact path="/settings" component={this._renderLazyComponent(Settings)} />
+            <Redirect to="/not-found" />
+          </Switch>
+        </Suspense>
+      </HorizontalBox>
+    </>
   )
 
   render() {
     return (
       <VerticalBox>
         <Init />
-        <Header />
         <Suspense fallback={<Page><Loading /></Page>}>
           <Switch>
             <Route path="/login" component={this._renderLazyComponent(Login)} />

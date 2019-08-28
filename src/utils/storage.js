@@ -31,6 +31,10 @@ class Storage {
     this._storage.removeItem(key)
   }
 
+  clear() {
+    this._storage.clear()
+  }
+
   pull(key, defaultValue) {
     const value = this.get(key, defaultValue)
 

@@ -6,14 +6,14 @@ import styled from 'styled-components'
 
 import Storage from '@/utils/storage'
 import { Images } from '@/theme'
-import { TYPES, actions } from '@/store/actions'
+import { actions } from '@/store/actions'
 import Container from '@/components/container'
 import Input from '@/components/input'
 import Button from '@/components/button'
 import Page from '@/components/page'
 import Field from '@/components/field'
 
-const Content = styled.div`
+const StyledContainer = styled(Container)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,17 +75,20 @@ class Login extends Component {
   _onSubmit = (values) => {
     const { login, getAccountInfo, history } = this.props
 
-    login(values, (action, data) => {
-      if (action === TYPES.LOGIN_SUCCESS) {
-        Storage.set('ACCESS_TOKEN', `${data.token}`)
+    // login(values, (action, data) => {
+    //   if (action === TYPES.LOGIN_SUCCESS) {
+    //     Storage.set('ACCESS_TOKEN', `${data.token}`)
+    //
+    //     getAccountInfo(null, (secondAction) => {
+    //       if (secondAction === TYPES.GET_ACCOUNT_INFO_SUCCESS) {
+    //         history.push('/')
+    //       }
+    //     })
+    //   }
+    // })
 
-        getAccountInfo(null, (secondAction) => {
-          if (secondAction === TYPES.GET_ACCOUNT_INFO_SUCCESS) {
-            history.push('/')
-          }
-        })
-      }
-    })
+    Storage.set('ACCESS_TOKEN', 'asdasdasd')
+    history.push('/')
   }
 
   _renderForm = ({ handleSubmit, ...form }) => {
@@ -139,18 +142,16 @@ class Login extends Component {
 
     return (
       <Page>
-        <Container>
-          <Content>
-            <Formik
-              validateOnChange={false}
-              validateOnBlur={false}
-              initialValues={initialValues}
-              validationSchema={validationSchema}
-              onSubmit={this._onSubmit}
-              component={this._renderForm}
-            />
-          </Content>
-        </Container>
+        <StyledContainer>
+          <Formik
+            validateOnChange={false}
+            validateOnBlur={false}
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={this._onSubmit}
+            component={this._renderForm}
+          />
+        </StyledContainer>
       </Page>
     )
   }

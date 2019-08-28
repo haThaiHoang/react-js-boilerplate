@@ -14,7 +14,7 @@ const HeaderContainer = styled.header`
   height: 60px;
   color: white;
   display: flex;
-  background-color: #005398;
+  background-color: ${({ theme }) => theme.primary};
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
@@ -58,6 +58,32 @@ const HeaderContainer = styled.header`
       display: flex;
       align-items: center;
 
+      .user-box {
+        display: flex;
+        align-items: center;
+        margin-right: 37px;
+        cursor: pointer;
+        user-select: none;
+
+        .avatar {
+          width: 34px;
+          height: 34px;
+          border-radius: 50%;
+          margin-right: 20px;
+        }
+
+        .name {
+          font-size: 16px;
+          letter-spacing: 0.21px;
+          margin-bottom: 0;
+          margin-right: 10px;
+        }
+
+        .anticon {
+          font-size: 12px;
+        }
+      }
+
       .flags {
         .flag {
           width: 35px;
@@ -86,7 +112,7 @@ const HeaderContainer = styled.header`
 `
 
 @withLocalize
-@connect(state => ({
+@connect((state) => ({
   accountStore: state.account
 }), {
   historyPush: push,
@@ -99,12 +125,12 @@ class Header extends Component {
 
     const { historyPush } = this.props
 
-    Storage.remove('ACCESS_TOKEN')
+    Storage.clear()
     historyPush('/login')
   }
 
   render() {
-    const { languages, setActiveLanguage, accountStore, toggleSideBar } = this.props
+    const { languages, setActiveLanguage, toggleSideBar } = this.props
 
     return (
       <HeaderContainer>
@@ -118,8 +144,24 @@ class Header extends Component {
             <p className="title">React JS Boilerplate</p>
           </div>
           <div className="right-box">
+            <Popover
+              content={(
+                <a href="/" onClick={this._onLogout}>Logout</a>
+              )}
+              trigger="click"
+            >
+              <div className="user-box">
+                <img
+                  className="avatar"
+                  src="https://image-us.eva.vn/upload/2-2019/images/2019-04-24/ra-mv-moi-chipu-thi-dep-that-nhung-fan-chi-chu-y-den-chiec-luoc-chai-chay-f1e397547b12924ccb03-1556124078-242-width1000height1000.jpg"
+                  alt=""
+                />
+                <p className="name">Hoanght</p>
+                <Icon type="down" />
+              </div>
+            </Popover>
             <div className="flags">
-              {languages.map(language => (
+              {languages.map((language) => (
                 <img
                   onClick={() => setActiveLanguage(language.code)}
                   key={language.code}

@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { withRouter, NavLink } from 'react-router-dom'
 import { withLocalize } from 'react-localize-redux'
+
+import { Colors } from '@/theme'
 
 const Box = styled.div`
   width: 0;
@@ -22,31 +24,28 @@ const Box = styled.div`
   .surfing-box {
     width: 300px;
 
-    .ant-menu {
-      border-right: none;
+    .menu {
+      display: flex;
+      flex-direction: column;
+      padding: 10px 0;
 
-      .ant-menu-item {
-        font-size: 15px;
-        color: #717171;
-        height: 60px;
-        padding-top: 11px;
-        margin: 0;
-        user-select: none;
-
-        &::after {
-          left: 0;
-          right: auto;
-          border-right: 5px solid #f47629;;
-        }
+      .menu-item {
+        padding: 15px;
+        color: black;
+        margin-bottom: 5px;
+        transition: background-color 0.2s;
 
         &:hover {
-          color: #717171;
+          background-color: ${({ theme }) => Colors.lighten(theme.primary, 67)};
         }
 
-        &.ant-menu-item-selected {
-          background-color: #f7f7f7;
-          font-weight: 600;
-          color: #4b4b4b;
+        &.active {
+          background-color: ${({ theme }) => Colors.lighten(theme.primary, 30)};
+          color: white;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
         }
       }
     }
@@ -56,6 +55,9 @@ const Box = styled.div`
 const MENU_ITEMS = [{
   link: '/',
   name: 'Home'
+}, {
+  link: '/settings',
+  name: 'Settings'
 }]
 
 @withRouter
@@ -66,24 +68,25 @@ const MENU_ITEMS = [{
 }))
 
 class SideBar extends Component {
-  _onMenuItemSelect = (e) => {
-    this.props.history.push(e.key)
-  }
-
   render() {
     const { uiStore } = this.props
 
     return (
       <Box className={uiStore.isSideBarOpen ? 'open' : ''}>
-        {/* <div className="surfing-box">
-          <Menu
-            onClick={this._onMenuItemSelect}
-            defaultSelectedKeys={[this.props.location.pathname]}
-            mode="inline"
-          >
-            {MENU_ITEMS.map(this._renderMenuItems)}
-          </Menu>
-        </div> */}
+        <div className="surfing-box">
+          <div className="menu">
+            {MENU_ITEMS.map((item, index) => (
+              <NavLink
+                exact
+                key={index}
+                to={item.link}
+                className="menu-item"
+              >
+                {item.name}
+              </NavLink>
+            ))}
+          </div>
+        </div>
       </Box>
     )
   }
