@@ -11,6 +11,7 @@ import Init from './init'
 
 const Login = lazy(() => import('@/pages/account/login'))
 const Home = lazy(() => import('@/pages/home'))
+const Settings = lazy(() => import('@/pages/settings'))
 const NotFound = lazy(() => import('@/pages/not-found'))
 
 const VerticalBox = styled.div`
@@ -34,7 +35,7 @@ const PrivateRoute = ({ condition, redirect, ...props }) => {
 }
 
 class Routes extends Component {
-  _renderLazyComponent = (LazyComponent, params) => props => <LazyComponent {...props} {...params} />
+  _renderLazyComponent = (LazyComponent, params) => (props) => <LazyComponent {...props} {...params} />
 
   _renderAuthRoutes = () => (
     <HorizontalBox>
@@ -42,6 +43,7 @@ class Routes extends Component {
       <Suspense fallback={<Page sidebar><Loading /></Page>}>
         <Switch>
           <Route exact path="/" component={this._renderLazyComponent(Home)} />
+          <Route exact path="/settings" component={this._renderLazyComponent(Settings)} />
           <Redirect to="/not-found" />
         </Switch>
       </Suspense>
