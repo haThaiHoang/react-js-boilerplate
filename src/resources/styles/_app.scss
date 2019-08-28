@@ -19,63 +19,7 @@ h5 {
   height: 100%;
 }
 
-#nprogress {
-  .bar {
-    background: white;
-  }
-
-  .spinner {
-    display: none;
-    // left: 200px;
-    // top: 20px;
-    // right: initial;
-    //
-    // .spinner-icon {
-    //   border-top-color: red;
-    //   border-left-color: red;
-    // }
-  }
-}
-
-@keyframes flicker {
-  0% { opacity: 0.5; }
-  50% { opacity: 1; }
-  100% { opacity: 0.5; }
-}
-
 @keyframes rotation {
   from { transform: rotate(0deg); }
   to { transform: rotate(359deg); }
-}
-
-@keyframes progress-bar-stripes {
-  0% { background-position: 40px 0; }
-  100% { background-position: 0 0; }
-}
-
-.ant-popover .ant-popover-content .ant-popover-inner .ant-popover-inner-content {
-  padding: 15px 30px;
-
-  .ant-popover-message {
-    .ant-popover-message-title {
-      padding-left: 0;
-      font-size: 15px;
-      font-weight: 500;
-    }
-  }
-
-  .ant-popover-buttons {
-    text-align: center;
-
-    .ant-btn {
-      height: 30px;
-      padding: 0 20px;
-      border: none;
-      background-color: #e4e8ed;
-
-      &.ant-btn-primary {
-        background-color: #005398;
-      }
-    }
-  }
 }

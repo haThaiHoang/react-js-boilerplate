@@ -27,9 +27,9 @@ export default function sagaHelper({ api, successMessage, errorHandler }) {
     } catch (e) {
       yield put({ type: failureType, error: e })
 
-      const localize = yield select(state => state.localize)
+      const localize = yield select((state) => state.localize)
       const languageIndex = localize.languages[0].active ? 0 : 1
-      const getLocalizeErrorMessages = name => (localize.translations[`error-messages.${name}`] || [])[languageIndex]
+      const getLocalizeErrorMessages = (name) => (localize.translations[`error-messages.${name}`] || [])[languageIndex]
 
       if (
         e.name === 'TOKEN_EXPIRED'
