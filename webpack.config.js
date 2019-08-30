@@ -78,27 +78,10 @@ module.exports = (env) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'src/index.ejs')
+        template: path.resolve(__dirname, 'src/index.ejs'),
+        favicon: path.resolve(__dirname, 'src/resources/images/favicon.png')
       }),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-      new FaviconsWebpackPlugin({
-        logo: path.resolve(__dirname, 'src/resources/images/favicon.png'),
-        cache: true,
-        favicons: {
-          icons: {
-            android: false,
-            appleIcon: false,
-            appleStartup: false,
-            coast: false,
-            favicons: true,
-            firefox: true,
-            opengraph: false,
-            twitter: false,
-            yandex: false,
-            windows: false
-          }
-        }
-      }),
       new MiniCssExtractPlugin(),
       new webpack.DefinePlugin({
         'window._CONFIG': JSON.stringify(getAppConfig(NODE_ENV)),
