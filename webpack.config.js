@@ -79,7 +79,7 @@ module.exports = (env) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, 'src/index.ejs'),
-        favicon: path.resolve(__dirname, 'src/resources/images/favicon.png')
+        favicon: path.resolve(__dirname, 'src/resources/images/favicon.ico')
       }),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       new MiniCssExtractPlugin(),
