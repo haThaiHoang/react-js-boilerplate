@@ -18,7 +18,7 @@ const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  box-shadow: 0px 0 8px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
   z-index: 0;
 
   .content {
@@ -106,7 +106,6 @@ const HeaderContainer = styled.header`
           }
         }
       }
-
     }
   }
 `

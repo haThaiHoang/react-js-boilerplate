@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import 'antd/es/table/style/css'
 
 const StyledTable = styled(Table)`
-
+  /* stylelint-disable */
 `
 
 export default (props) => (

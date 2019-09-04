@@ -8,6 +8,7 @@ import 'antd/es/select/style/css'
 const { Option } = Select
 
 const StyledSelect = styled(Select)`
+  /* stylelint-disable */
 `
 
 export default class extends Component {
