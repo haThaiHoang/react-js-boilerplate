@@ -1,6 +1,7 @@
 import React from 'react'
 import { Modal } from 'antd'
 import styled from 'styled-components'
+import 'antd/es/modal/style/css'
 
 const StyledModal = styled(Modal)`
 `

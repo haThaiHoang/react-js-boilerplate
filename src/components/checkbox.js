@@ -1,6 +1,7 @@
 import React from 'react'
 import { Checkbox } from 'antd'
 import styled from 'styled-components'
+import 'antd/es/checkbox/style/css'
 
 const StyledCheckbox = styled(Checkbox)`
 `

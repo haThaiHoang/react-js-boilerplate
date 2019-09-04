@@ -3,6 +3,7 @@ import { Select } from 'antd'
 import lodash from 'lodash'
 import classNames from 'classnames'
 import styled from 'styled-components'
+import 'antd/es/select/style/css'
 
 const { Option } = Select
 
