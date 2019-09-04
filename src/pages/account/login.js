@@ -72,8 +72,8 @@ const validationSchema = object().shape({
 })
 
 class Login extends Component {
-  _onSubmit = (values) => {
-    const { login, getAccountInfo, history } = this.props
+  _onSubmit = () => {
+    // const { login, getAccountInfo, history } = this.props
 
     // login(values, (action, data) => {
     //   if (action === TYPES.LOGIN_SUCCESS) {
@@ -88,7 +88,7 @@ class Login extends Component {
     // })
 
     Storage.set('ACCESS_TOKEN', 'asdasdasd')
-    history.push('/')
+    // history.push('/')
   }
 
   _renderForm = ({ handleSubmit, ...form }) => {
