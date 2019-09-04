@@ -88,7 +88,7 @@ class Login extends Component {
     // })
 
     Storage.set('ACCESS_TOKEN', 'asdasdasd')
-    // history.push('/')
+    this.props.history.push('/')
   }
 
   _renderForm = ({ handleSubmit, ...form }) => {

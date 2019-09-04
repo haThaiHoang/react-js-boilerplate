@@ -1,5 +1,6 @@
 import lodash from 'lodash'
 import { message } from 'antd'
+import 'antd/es/message/style/css'
 
 function isFetchError(error) {
   return !!error && lodash.hasIn(error, 'status') && lodash.isFunction(error.json)
