@@ -1,5 +1,4 @@
 /* eslint-disable  */
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
