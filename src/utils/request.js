@@ -1,10 +1,10 @@
 import lodash from 'lodash'
-import Storage from '@/utils/storage'
 
 // eslint-disable-next-line no-underscore-dangle
 let _requests = 0
 // eslint-disable-next-line no-underscore-dangle
 let _interceptors = {}
+let accessToken = null
 
 function triggerInterceptors(event, data = {}) {
   lodash.forEach(_interceptors, (interceptor) => {
@@ -23,6 +23,14 @@ class Request {
 
   static unregisterInterceptor(name) {
     _interceptors = lodash.omit(_interceptors, name)
+  }
+
+  static setAccessToken(token) {
+    accessToken = token
+  }
+
+  static removeAccessToken() {
+    accessToken = null
   }
 
   constructor(options) {
@@ -65,14 +73,10 @@ class Request {
 
     url = this._options.endpoint + url
 
-    if (this._options.handleToken) {
-      const token = Storage.get('ACCESS_TOKEN')
-
-      if (token) {
-        this._authorization = token
-        // if (!params) params = {}
-        // params.access_token = token
-      }
+    if (this._options.handleToken && accessToken) {
+      this._authorization = accessToken
+      // if (!params) params = {}
+      // params.access_token = token
     }
 
     if (params) {
