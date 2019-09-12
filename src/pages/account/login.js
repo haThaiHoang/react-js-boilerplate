@@ -78,7 +78,7 @@ class Login extends Component {
     //
     // login(values, (action, data) => {
     //   if (action === TYPES.LOGIN_SUCCESS) {
-    //     Storage.set('ACCESS_TOKEN', `${data.token}`)
+    //     Storage.set('ACCESS_TOKEN', data.token)
     //     Request.setAccessToken(data.token)
     //
     //     getAccountInfo(null, (secondAction) => {
