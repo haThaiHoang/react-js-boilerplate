@@ -107,7 +107,6 @@ class Login extends Component {
             form={form}
             name="userCode"
             label="User name"
-            icon="user"
             component={Input}
           />
           <Field
@@ -115,7 +114,6 @@ class Login extends Component {
             name="password"
             label="Password"
             type="password"
-            icon="lock"
             component={Input}
           />
         </div>

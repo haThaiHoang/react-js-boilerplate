@@ -74,7 +74,7 @@ export default withLocalize(({
       )}
       <div className="field-content">
         <Field {...props} name={name} component={Component} />
-        <p className="error-message">{form.errors[name] && translate(`validation.${form.errors[name]}`)}</p>
+        <p className="error-message">{form && form.errors[name] && translate(`validation.${form.errors[name]}`)}</p>
       </div>
     </Box>
   )
