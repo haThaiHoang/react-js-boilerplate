@@ -24,7 +24,9 @@ class Theme extends Component {
 
     return (
       <ThemeProvider theme={theme}>
-        {children}
+        <>
+          {children}
+        </>
       </ThemeProvider>
     )
   }

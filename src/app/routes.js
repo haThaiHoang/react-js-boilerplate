@@ -7,7 +7,6 @@ import Loading from '@/components/loading'
 import Page from '@/components/page'
 import Header from './header'
 import SideBar from './side-bar'
-import Init from './init'
 
 const Login = lazy(() => import('@/pages/account/login'))
 const Home = lazy(() => import('@/pages/home'))
@@ -56,7 +55,6 @@ class Routes extends Component {
   render() {
     return (
       <VerticalBox>
-        <Init />
         <Suspense fallback={<Page><Loading /></Page>}>
           <Switch>
             <Route path="/login" component={this._renderLazyComponent(Login)} />

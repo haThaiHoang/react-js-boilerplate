@@ -7,6 +7,8 @@ import errorMessagesEN from '@/languages/error-messages/en.json'
 import errorMessagesJP from '@/languages/error-messages/jp.json'
 import validationEN from '@/languages/validation/en.json'
 import validationJP from '@/languages/validation/jp.json'
+import Request from '@/utils/request'
+import Storage from '@/utils/storage'
 
 setLocale({
   mixed: {
@@ -20,9 +22,8 @@ setLocale({
 @withLocalize
 
 class Init extends Component {
-  constructor(props) {
-    super(props)
-    const { initialize, addTranslationForLanguage: add } = props
+  componentDidMount() {
+    const { initialize, addTranslationForLanguage: add } = this.props
 
     initialize({
       languages: [{
@@ -41,9 +42,10 @@ class Init extends Component {
     add(errorMessagesJP, 'jp')
     add(validationEN, 'en')
     add(validationJP, 'jp')
-  }
 
-  componentDidMount() {
+    const token = Storage.get('ACCESS_TOKEN')
+    Request.setAccessToken(token)
+
     this._hidePreloading()
   }
 

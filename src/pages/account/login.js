@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { object, string } from 'yup'
 import styled from 'styled-components'
 
+// import Request from '@/utils/request'
 import Storage from '@/utils/storage'
 import { Images } from '@/theme'
 import { actions } from '@/store/actions'
@@ -74,10 +75,11 @@ const validationSchema = object().shape({
 class Login extends Component {
   _onSubmit = () => {
     // const { login, getAccountInfo, history } = this.props
-
+    //
     // login(values, (action, data) => {
     //   if (action === TYPES.LOGIN_SUCCESS) {
     //     Storage.set('ACCESS_TOKEN', `${data.token}`)
+    //     Request.setAccessToken(data.token)
     //
     //     getAccountInfo(null, (secondAction) => {
     //       if (secondAction === TYPES.GET_ACCOUNT_INFO_SUCCESS) {
