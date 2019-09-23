@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 import { object, string } from 'yup'
 import styled from 'styled-components'
 
-// import Request from '@/utils/request'
+import Request from '@/utils/request'
 import Storage from '@/utils/storage'
 import { Images } from '@/theme'
-import { actions } from '@/store/actions'
+import { TYPES, actions } from '@/store/actions'
 import Container from '@/components/container'
 import Input from '@/components/input'
 import Button from '@/components/button'
@@ -68,29 +68,20 @@ const validationSchema = object().shape({
 @connect((state) => ({
   accountStore: state.account
 }), {
-  login: actions.login,
-  getAccountInfo: actions.getAccountInfo
+  login: actions.login
 })
 
 class Login extends Component {
-  _onSubmit = () => {
-    // const { login, getAccountInfo, history } = this.props
-    //
-    // login(values, (action, data) => {
-    //   if (action === TYPES.LOGIN_SUCCESS) {
-    //     Storage.set('ACCESS_TOKEN', data.token)
-    //     Request.setAccessToken(data.token)
-    //
-    //     getAccountInfo(null, (secondAction) => {
-    //       if (secondAction === TYPES.GET_ACCOUNT_INFO_SUCCESS) {
-    //         history.push('/')
-    //       }
-    //     })
-    //   }
-    // })
+  _onSubmit = (values) => {
+    const { login, history } = this.props
+    login(values, (action, data) => {
+      if (action === TYPES.LOGIN_SUCCESS) {
+        Storage.set('ACCESS_TOKEN', data.token)
+        Request.setAccessToken(data.token)
 
-    Storage.set('ACCESS_TOKEN', 'asdasdasd')
-    this.props.history.push('/')
+        history.push('/')
+      }
+    })
   }
 
   _renderForm = ({ handleSubmit, ...form }) => {
@@ -124,7 +115,7 @@ class Login extends Component {
             size="large"
             htmlType="submit"
             type="primary"
-            loading={!!accountStore.submitting}
+            loading={accountStore.submitting === TYPES.LOGIN_REQUEST}
             onClick={handleSubmit}
           >
             Login
