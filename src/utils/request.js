@@ -29,6 +29,10 @@ class Request {
     accessToken = token
   }
 
+  static getAccessToken() {
+    return accessToken
+  }
+
   static removeAccessToken() {
     accessToken = null
   }
@@ -50,7 +54,7 @@ class Request {
   }
 
   delete(url, data, params, headers) {
-    return this.request({ method: 'DELETE', url, params: { ...data, ...params }, headers })
+    return this.request({ method: 'DELETE', url, params, data, headers })
   }
 
   async request(...args) {
@@ -98,7 +102,7 @@ class Request {
 
     options.headers = lodash.merge(options.headers, headers)
 
-    if (method === 'POST' || method === 'PUT') {
+    if (['POST', 'PUT', 'DELETE'].includes(method)) {
       if (data) {
         const serializable = lodash.isPlainObject(data) || lodash.isArray(data)
 
@@ -116,7 +120,8 @@ class Request {
       }
     }
 
-    // console.log(method, url, data, params)
+    // eslint-disable-next-line
+    console.log('%c --API REQUEST-- ', 'background: #222; color: #bada55', url, options)
 
     const res = await fetch(url, options)
 
@@ -128,7 +133,7 @@ class Request {
     const text = await res.text()
 
     try {
-      const responseData = JSON.parse(text)
+      const responseData = text !== '' ? JSON.parse(text) : ''
 
       return responseData
     } catch (error) {
