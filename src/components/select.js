@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Select } from 'antd'
 import lodash from 'lodash'
-import classNames from 'classnames'
 import styled from 'styled-components'
 import 'antd/es/select/style/css'
 
@@ -45,15 +44,14 @@ export default class extends Component {
   }
 
   render() {
-    const { field, options, onChange, optionBinding, value, modern, simple, className, renderOption, ...props } = this.props
+    const { field, options, onChange, optionBinding, value, renderOption, ...props } = this.props
 
     return (
       <StyledSelect
         {...field}
         {...props}
-        className={classNames(className, { modern, simple })}
         onChange={this._onChange}
-        value={field?.value || value || (value === 0 || typeof value === 'boolean' ? value : undefined)}
+        value={field?.value || value}
       >
         {options.map(this._renderOption)}
       </StyledSelect>
