@@ -21,7 +21,7 @@ export default function sagaHelper({ api, successMessage, errorHandler }) {
 
         if (successMessage) Notification.success(successMessage)
 
-        if (callback) callback(successType, result)
+        if (callback) callback(true, result)
       } else {
         throw result
       }
@@ -45,7 +45,7 @@ export default function sagaHelper({ api, successMessage, errorHandler }) {
         Notification.error(getLocalizeErrorMessages(error.message) || error.message)
       }
 
-      if (callback) callback(failureType, error)
+      if (callback) callback(false, error)
     }
   }
 }
