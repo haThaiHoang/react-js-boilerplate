@@ -21,7 +21,6 @@ class Home extends Component {
 
     addTranslationForLanguage(homeEN, 'en')
     addTranslationForLanguage(homeJP, 'jp')
-    console.log("hohoho");
   }
 
   render() {
