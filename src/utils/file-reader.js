@@ -20,11 +20,3 @@ export const openDownloadLink = ({ url, data, filename }) => {
 
   document.body.removeChild(a)
 }
-
-export const readAsDataURL = (file, callback) => {
-  const reader = new FileReader()
-  reader.onload = (e) => {
-    callback(e.target.result)
-  }
-  reader.readAsDataURL(file)
-}
