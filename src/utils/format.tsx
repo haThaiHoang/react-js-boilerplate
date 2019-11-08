@@ -5,7 +5,7 @@ export default class Format {
     undefined, { minimumFractionDigits: 0 }
   )
 
-  static shortDay = (day) => (day ? moment(day).format('DD/MM/YYYY') : '--')
+  static date = (day) => (day ? moment(day).format('DD/MM/YYYY') : '--')
 
   static age = (day) => moment().diff(day, 'years', false)
 }

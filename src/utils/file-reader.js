@@ -5,8 +5,8 @@ export const getBase64 = (file) => new Promise((resolve, reject) => {
   reader.onerror = (error) => reject(error)
 })
 
-export const openDownloadLink = (data, filename) => {
-  const downloadUrl = `data:text/csv;base64,${data}`
+export const openDownloadLink = ({ url, data, filename }) => {
+  const downloadUrl = url || data
   const a = document.createElement('a')
 
   if (typeof a.download === 'undefined') {
@@ -17,6 +17,8 @@ export const openDownloadLink = (data, filename) => {
     document.body.appendChild(a)
     a.click()
   }
+
+  document.body.removeChild(a)
 }
 
 export const readAsDataURL = (file, callback) => {
