@@ -8,11 +8,12 @@ import { actions } from '@/store/actions'
 
 export default function sagaHelper({ api, successMessage, errorHandler }) {
   return function* ({ type, data, callback }) {
+    const requestType = `${type}_REQUEST`
     const successType = `${type}_SUCCESS`
     const failureType = `${type}_FAILURE`
 
     try {
-      yield put({ type: `${type}_REQUEST`, payload: data })
+      yield put({ type: requestType, payload: data })
 
       const { success, result } = yield api(data)
 
