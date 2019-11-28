@@ -18,12 +18,7 @@
         "fileName": false,
         "displayName": false
       }
-    ],
-    ["module-resolver", {
-      "alias": {
-        "@": "./src"
-      }
-    }]
+    ]
   ],
   "env": {
     "local": {

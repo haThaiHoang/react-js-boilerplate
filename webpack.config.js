@@ -38,7 +38,8 @@ module.exports = (env) => {
     },
     resolve: {
       alias: {
-        "@ant-design/icons/lib/dist$": path.resolve(__dirname, "src/overwrite/antd-icons")
+        "@ant-design/icons/lib/dist$": path.resolve(__dirname, "src/overwrite/antd-icons"),
+        "@": path.resolve(__dirname, "src")
       }
     },
     module: {
