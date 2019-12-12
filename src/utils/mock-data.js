@@ -4,7 +4,7 @@ export default function (data, error, condition = true) {
       if (condition) {
         resolve(data)
       } else {
-        reject(new Error(error))
+        reject(error)
       }
     }, 1000)
   })
