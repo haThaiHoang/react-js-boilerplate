@@ -78,7 +78,7 @@ class Request {
     url = this._options.endpoint + url
 
     if (this._options.handleToken && accessToken) {
-      this._authorization = accessToken
+      this._authorization = `Bearer ${accessToken}`
       // if (!params) params = {}
       // params.access_token = token
     }
