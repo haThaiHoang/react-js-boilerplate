@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
-import { connect } from 'react-redux'
 import { object, string } from 'yup'
 import styled from 'styled-components'
 
-import Request from '@/utils/request'
-import Storage from '@/utils/storage'
+// import Request from '@/utils/request'
+// import Storage from '@/utils/storage'
 import { Images } from '@/theme'
-import { TYPES, actions } from '@/store/actions'
 import Container from '@/components/container'
 import Input from '@/components/input'
 import Button from '@/components/button'
@@ -29,10 +27,8 @@ const StyledContainer = styled(Container)`
 
     .logo {
       max-width: 300px;
-      margin: 0 auto;
-      margin-left: 50%;
       transform: translateX(-50%);
-      margin-bottom: 30px;
+      margin: 0 auto 30px 50%;
     }
 
     .title {
@@ -65,65 +61,55 @@ const validationSchema = object().shape({
   password: string().required()
 })
 
-@connect((state) => ({
-  accountStore: state.account
-}), {
-  login: actions.login
-})
-
 class Login extends Component {
-  _onSubmit = (values) => {
-    const { login, history } = this.props
-    login(values, (success, data) => {
-      if (success) {
-        Storage.set('ACCESS_TOKEN', data.token)
-        Request.setAccessToken(data.token)
-
-        history.push('/')
-      }
-    })
+  _onSubmit = () => {
+    // const { login, history } = this.props
+    // login(values, (success, data) => {
+    //   if (success) {
+    //     Storage.set('ACCESS_TOKEN', data.token)
+    //     Request.setAccessToken(data.token)
+    //
+    //     history.push('/')
+    //   }
+    // })
   }
 
-  _renderForm = ({ handleSubmit, ...form }) => {
-    const { accountStore } = this.props
-
-    return (
-      <Form className="form">
-        <img
-          src={Images.LOGO}
-          alt=""
-          className="logo"
+  _renderForm = ({ handleSubmit, ...form }) => (
+    <Form className="form">
+      <img
+        src={Images.LOGO}
+        alt=""
+        className="logo"
+      />
+      <p className="title">LOGIN</p>
+      <div className="field-group">
+        <Field
+          form={form}
+          name="userCode"
+          label="User name"
+          component={Input}
         />
-        <p className="title">LOGIN</p>
-        <div className="field-group">
-          <Field
-            form={form}
-            name="userCode"
-            label="User name"
-            component={Input}
-          />
-          <Field
-            form={form}
-            name="password"
-            label="Password"
-            type="password"
-            component={Input}
-          />
-        </div>
-        <div className="action-box">
-          <Button
-            size="large"
-            htmlType="submit"
-            type="primary"
-            loading={accountStore.submitting === TYPES.LOGIN_REQUEST}
-            onClick={handleSubmit}
-          >
-            Login
-          </Button>
-        </div>
-      </Form>
-    )
-  }
+        <Field
+          form={form}
+          name="password"
+          label="Password"
+          type="password"
+          component={Input}
+        />
+      </div>
+      <div className="action-box">
+        <Button
+          size="large"
+          htmlType="submit"
+          type="primary"
+          // loading={accountStore.submitting === TYPES.LOGIN_REQUEST}
+          onClick={handleSubmit}
+        >
+          Login
+        </Button>
+      </div>
+    </Form>
+  )
 
   render() {
     const initialValues = {

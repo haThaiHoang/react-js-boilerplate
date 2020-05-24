@@ -1,7 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export const forwardInnerRef = (Component) => {
   class ForwardedComponent extends React.Component {
+    static propTypes = {
+      innerRef: PropTypes.func
+    }
+
     componentDidMount() {
       const { innerRef } = this.props
 

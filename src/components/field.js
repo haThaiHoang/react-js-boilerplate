@@ -1,9 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import classNames from 'classnames'
-import { withLocalize } from 'react-localize-redux'
-import lodash from 'lodash'
-import { Field } from 'formik'
+import { Field as FormikField, ErrorMessage } from 'formik'
 
 const Box = styled.div`
   position: relative;
@@ -45,37 +44,28 @@ const Box = styled.div`
     }
   }
 `
-
-export default withLocalize(({
+const Field = ({
   component: Component,
-  translate,
-  form,
   name,
   label,
   inline,
   ...props
-}) => {
-  props = lodash.omit(props, [
-    'activeLanguage',
-    'addTranslation',
-    'addTranslationForLanguage',
-    'defaultLanguage',
-    'ignoreTranslateChildren',
-    'initialize',
-    'languages',
-    'setActiveLanguage',
-    'renderToStaticMarkup'
-  ])
+}) => (
+  <Box className={classNames('field', { inline })}>
+    {label && (
+      <p className="label">{label}</p>
+    )}
+    <div className="field-content">
+      <FormikField {...props} name={name} component={Component} />
+      <p className="error-message"><ErrorMessage name={name} /></p>
+    </div>
+  </Box>
+)
+Field.propTypes = {
+  component: PropTypes.func,
+  name: PropTypes.string,
+  label: PropTypes.string,
+  inline: PropTypes.bool
+}
 
-  return (
-    <Box className={classNames('field', { inline })}>
-      {label && (
-        <p className="label">{label}</p>
-      )}
-      <div className="field-content">
-        <Field {...props} name={name} component={Component} />
-        <p className="error-message">{form && form.errors[name] && translate(`validation.${form.errors[name]}`)}</p>
-      </div>
-    </Box>
-  )
-})
+export default Field

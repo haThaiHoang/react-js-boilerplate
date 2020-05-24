@@ -3,13 +3,11 @@ import { Typography } from 'antd'
 import styled from 'styled-components'
 
 const StyledTitle = styled(Typography.Title)`
-
+  /* stylelint-disable */
 `
 const StyledText = styled(Typography.Text)`
-
 `
 const StyledParagraph = styled(Typography.Paragraph)`
-
 `
 
 
@@ -27,6 +25,8 @@ export default class extends Component {
   )
 
   render() {
-    return <Typography />
+    const { children, ...props } = this.props
+
+    return <Typography {...props}>{children}</Typography>
   }
 }

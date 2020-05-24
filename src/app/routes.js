@@ -1,4 +1,5 @@
 import React, { Component, Suspense, lazy } from 'react'
+import PropTypes from 'prop-types'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -31,6 +32,10 @@ const PrivateRoute = ({ condition, redirect, ...props }) => {
 
   if (condition) return <Route {...props} />
   return <Redirect to={redirect} />
+}
+PrivateRoute.propTypes = {
+  condition: PropTypes.func,
+  redirect: PropTypes.string
 }
 
 class Routes extends Component {

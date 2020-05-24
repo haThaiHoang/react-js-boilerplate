@@ -1,2 +1,2 @@
-import 'antd/es/popover/style/css'
+import 'antd/dist/antd.css'
 import './main.scss'

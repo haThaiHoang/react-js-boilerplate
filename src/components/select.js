@@ -1,16 +1,26 @@
 import React, { Component } from 'react'
-import { Select } from 'antd'
+import PropTypes from 'prop-types'
+import { Select as AntdSelect } from 'antd'
 import lodash from 'lodash'
 import styled from 'styled-components'
-import 'antd/es/select/style/css'
 
-const { Option } = Select
+const { Option } = AntdSelect
 
-const StyledSelect = styled(Select)`
+const StyledSelect = styled(AntdSelect)`
   /* stylelint-disable */
 `
 
 export default class extends Component {
+  static propTypes = {
+    field: PropTypes.object,
+    optionBinding: PropTypes.object,
+    onChange: PropTypes.func,
+    renderOption: PropTypes.func,
+    name: PropTypes.string,
+    options: PropTypes.array,
+    value: PropTypes.any
+  }
+
   _onChange = (value) => {
     const { field, onChange, name } = this.props
 

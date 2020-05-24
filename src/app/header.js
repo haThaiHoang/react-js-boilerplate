@@ -1,13 +1,8 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Icon, Popover } from 'antd'
-import { push } from 'connected-react-router'
-import { withLocalize } from 'react-localize-redux'
+import { Popover } from 'antd'
 import styled from 'styled-components'
 
 import Storage from '@/utils/storage'
-import { actions } from '@/store/actions'
-import { Images } from '@/theme'
 
 const HeaderContainer = styled.header`
   width: 100%;
@@ -83,63 +78,27 @@ const HeaderContainer = styled.header`
           font-size: 12px;
         }
       }
-
-      .flags {
-        .flag {
-          width: 35px;
-          cursor: pointer;
-          transition: opacity 0.2s;
-          margin-right: 16px;
-          opacity: 0.5;
-
-          &:last-child {
-            margin-right: 0;
-          }
-
-          &:hover {
-            opacity: 0.7;
-          }
-
-          &.active {
-            opacity: 1;
-            cursor: auto;
-          }
-        }
-      }
     }
   }
 `
-
-@withLocalize
-@connect((state) => ({
-  accountStore: state.account
-}), {
-  historyPush: push,
-  toggleSideBar: actions.toggleSideBar
-})
 
 class Header extends Component {
   _onLogout = (e) => {
     e.preventDefault()
 
-    const { historyPush } = this.props
-
     Storage.clear()
-    historyPush('/login')
   }
 
   render() {
-    const { languages, setActiveLanguage, toggleSideBar } = this.props
-
     return (
       <HeaderContainer>
         <div className="content">
           <div className="left-box">
-            <Icon
-              onClick={toggleSideBar}
-              className="menu-button"
-              type="menu"
-            />
+            {/* <Icon */}
+            {/*  onClick={toggleSideBar} */}
+            {/*  className="menu-button" */}
+            {/*  type="menu" */}
+            {/* /> */}
             <p className="title">React JS Boilerplate</p>
           </div>
           <div className="right-box">
@@ -152,24 +111,12 @@ class Header extends Component {
               <div className="user-box">
                 <img
                   className="avatar"
-                  src="https://image-us.eva.vn/upload/2-2019/images/2019-04-24/ra-mv-moi-chipu-thi-dep-that-nhung-fan-chi-chu-y-den-chiec-luoc-chai-chay-f1e397547b12924ccb03-1556124078-242-width1000height1000.jpg"
+                  src="https://media.giaoducthoidai.vn/Uploaded/tranghn/2019-05-15/n6-MDJP.jpg"
                   alt=""
                 />
                 <p className="name">Hoanght</p>
-                <Icon type="down" />
               </div>
             </Popover>
-            <div className="flags">
-              {languages.map((language) => (
-                <img
-                  onClick={() => setActiveLanguage(language.code)}
-                  key={language.code}
-                  src={Images[`${language.code.toUpperCase()}_FLAG`]}
-                  className={language.active ? 'flag active' : 'flag'}
-                  alt=""
-                />
-              ))}
-            </div>
           </div>
         </div>
       </HeaderContainer>

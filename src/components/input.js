@@ -1,17 +1,20 @@
 import React from 'react'
-import { Input } from 'antd'
-import classNames from 'classnames'
+import PropTypes from 'prop-types'
+import { Input as AntdInput } from 'antd'
 import styled from 'styled-components'
-import 'antd/es/input/style/css'
 
-const StyledInput = styled(Input)`
+const StyledInput = styled(AntdInput)`
   /* stylelint-disable */
 `
 
-export default ({ field, form, modern, simple, className, ...props }) => (
+const Input = ({ field, ...props }) => (
   <StyledInput
     {...field}
     {...props}
-    className={classNames(className, { modern, simple })}
   />
 )
+Input.propTypes = {
+  field: PropTypes.object
+}
+
+export default Input

@@ -16,7 +16,7 @@ export default class extends Component {
   }
 
   render() {
-    const { children, sidebar, className, ...props } = this.props
+    const { children, className, ...props } = this.props
 
     return (
       <>

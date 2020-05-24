@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { connect } from 'react-redux'
-import { withRouter, NavLink } from 'react-router-dom'
-import { withLocalize } from 'react-localize-redux'
+import { NavLink } from 'react-router-dom'
 
 import { Colors } from '@/theme'
 
@@ -60,19 +58,13 @@ const MENU_ITEMS = [{
   name: 'Settings'
 }]
 
-@withRouter
-@withLocalize
-@connect((state) => ({
-  accountStore: state.account,
-  uiStore: state.ui
-}))
-
 class SideBar extends Component {
-  render() {
-    const { uiStore } = this.props
+  state = {}
 
+  render() {
     return (
-      <Box className={uiStore.isSideBarOpen ? 'open' : ''}>
+      // <Box className={uiStore.isSideBarOpen ? 'open' : ''}>
+      <Box className="open">
         <div className="surfing-box">
           <div className="menu">
             {MENU_ITEMS.map((item, index) => (

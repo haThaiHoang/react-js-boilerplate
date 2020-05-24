@@ -1,6 +1,0 @@
-{
-  "error-messages": {
-    "SYSTEM_ERROR": "システムエラー",
-    "TOKEN_EXPIRED": "トークンの有効期限が切れました"
-  }
-}

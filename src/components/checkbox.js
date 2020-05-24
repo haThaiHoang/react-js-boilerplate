@@ -1,13 +1,13 @@
 import React from 'react'
-import { Checkbox } from 'antd'
+import PropTypes from 'prop-types'
+import { Checkbox as AntdCheckbox } from 'antd'
 import styled from 'styled-components'
-import 'antd/es/checkbox/style/css'
 
-const StyledCheckbox = styled(Checkbox)`
+const StyledCheckbox = styled(AntdCheckbox)`
   /* stylelint-disable */
 `
 
-export default ({ children, field, form, ...props }) => (
+const Checkbox = ({ children, field, ...props }) => (
   <StyledCheckbox
     {...props}
     {...field}
@@ -16,3 +16,9 @@ export default ({ children, field, form, ...props }) => (
     {children}
   </StyledCheckbox>
 )
+Checkbox.propTypes = {
+  field: PropTypes.object,
+  checked: PropTypes.bool
+}
+
+export default Checkbox

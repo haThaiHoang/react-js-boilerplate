@@ -1,17 +1,21 @@
 import React from 'react'
-import { DatePicker } from 'antd'
-import classNames from 'classnames'
+import PropTypes from 'prop-types'
+import { DatePicker as AntdDatePicker } from 'antd'
 import styled from 'styled-components'
-import 'antd/es/date-picker/style/css'
 
-const StyledDatePicker = styled(DatePicker)`
-
+const StyledDatePicker = styled(AntdDatePicker)`
+  /* stylelint-disable */
 `
 
-export default ({ field, form, className, ...props }) => (
+const DatePicker = ({ field, form, ...props }) => (
   <StyledDatePicker
     {...field}
     {...props}
-    className={classNames(className)}
   />
 )
+DatePicker.propTypes = {
+  field: PropTypes.object,
+  form: PropTypes.object
+}
+
+export default DatePicker
