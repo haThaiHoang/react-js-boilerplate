@@ -1,5 +1,4 @@
 import { Component } from 'react'
-import { withLocalize } from 'react-localize-redux'
 import setLocale from 'yup/lib/setLocale'
 
 import Request from '@/utils/request'
@@ -13,8 +12,6 @@ setLocale({
     email: 'email'
   }
 })
-
-@withLocalize
 
 class Init extends Component {
   componentDidMount() {

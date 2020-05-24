@@ -120,9 +120,6 @@ class Request {
       }
     }
 
-    // eslint-disable-next-line
-    console.log('%c --API REQUEST-- ', 'background: #222; color: #bada55', url, options)
-
     const res = await fetch(url, options)
 
     if (!res.ok) {

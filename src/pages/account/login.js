@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Formik, Form } from 'formik'
 import { object, string } from 'yup'
 import styled from 'styled-components'
+import { inject, observer } from 'mobx-react'
 
-// import Request from '@/utils/request'
-// import Storage from '@/utils/storage'
+import Request from '@/utils/request'
+import Storage from '@/utils/storage'
 import { Images } from '@/theme'
 import Container from '@/components/container'
 import Input from '@/components/input'
@@ -57,63 +59,84 @@ const StyledContainer = styled(Container)`
 `
 
 const validationSchema = object().shape({
-  userCode: string().required(),
+  username: string().required(),
   password: string().required()
 })
 
+@inject((stores) => ({
+  authStore: stores.auth
+}))
+@observer
 class Login extends Component {
-  _onSubmit = () => {
-    // const { login, history } = this.props
-    // login(values, (success, data) => {
-    //   if (success) {
-    //     Storage.set('ACCESS_TOKEN', data.token)
-    //     Request.setAccessToken(data.token)
-    //
-    //     history.push('/')
-    //   }
-    // })
+  static propTypes = {
+    authStore: PropTypes.object
   }
 
-  _renderForm = ({ handleSubmit, ...form }) => (
-    <Form className="form">
-      <img
-        src={Images.LOGO}
-        alt=""
-        className="logo"
-      />
-      <p className="title">LOGIN</p>
-      <div className="field-group">
-        <Field
-          form={form}
-          name="userCode"
-          label="User name"
-          component={Input}
+  state = {
+    loading: false
+  }
+
+  _onSubmit = async (values) => {
+    const { authStore, history } = this.props
+
+    this.setState({ loading: true })
+
+    const { success, data } = await authStore.login(values)
+
+    if (success) {
+      Storage.set('ACCESS_TOKEN', data.token)
+      Request.setAccessToken(data.token)
+
+      this.setState({ loading: false })
+      history.push('/')
+    } else {
+      this.setState({ loading: false })
+    }
+  }
+
+  _renderForm = ({ handleSubmit, isValid }) => {
+    const { loading } = this.state
+
+    return (
+      <Form className="form">
+        <img
+          src={Images.LOGO}
+          alt=""
+          className="logo"
         />
-        <Field
-          form={form}
-          name="password"
-          label="Password"
-          type="password"
-          component={Input}
-        />
-      </div>
-      <div className="action-box">
-        <Button
-          size="large"
-          htmlType="submit"
-          type="primary"
-          // loading={accountStore.submitting === TYPES.LOGIN_REQUEST}
-          onClick={handleSubmit}
-        >
-          Login
-        </Button>
-      </div>
-    </Form>
-  )
+        <p className="title">LOGIN</p>
+        <div className="field-group">
+          <Field
+            name="username"
+            label="User name"
+            component={Input}
+          />
+          <Field
+            name="password"
+            label="Password"
+            type="password"
+            component={Input}
+          />
+        </div>
+        <div className="action-box">
+          <Button
+            disabled={!isValid}
+            size="large"
+            htmlType="submit"
+            type="primary"
+            loading={loading}
+            onClick={handleSubmit}
+          >
+            Login
+          </Button>
+        </div>
+      </Form>
+    )
+  }
 
   render() {
     const initialValues = {
-      userCode: '',
+      username: '',
       password: ''
     }
 
@@ -121,8 +144,12 @@ class Login extends Component {
       <Page>
         <StyledContainer>
           <Formik
-            validateOnChange={false}
-            validateOnBlur={false}
+            // validateOnChange={false}
+            // validateOnBlur={false}
+            initialErrors={{
+              username: 'Required',
+              password: 'Required'
+            }}
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={this._onSubmit}

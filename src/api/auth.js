@@ -6,10 +6,7 @@ export function login(/* payload */) {
 
   return mockData({
     data: {
-      success: true,
-      result: {
-        token: 'SH6643HDHJSGFJSD73475674856'
-      }
+      token: 'SH6643HDHJSGFJSD73475674856'
     }
   })
 }

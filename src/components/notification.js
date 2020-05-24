@@ -10,7 +10,7 @@ const show = (type, data) => {
 }
 
 class Notification {
-  static success(data) {
+  static show(data) {
     show('success', data)
   }
 
