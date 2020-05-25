@@ -5,6 +5,7 @@ import Notification from '@/components/notification'
 import Misc from '@/utils/misc'
 import Request from '@/utils/request'
 import ERROR_MESSAGE from '@/constants/error-messages'
+import { routingStore } from '@/store'
 import Storage from './storage'
 
 const Model = types.model('MobxModelHelper', {
@@ -60,7 +61,7 @@ const Model = types.model('MobxModelHelper', {
         if (error.messageCode === 'TOKEN_INVALID') {
           Request.removeAccessToken()
           Storage.remove('ACCESS_TOKEN')
-          // navigate('Login')
+          routingStore.replace('/login')
 
           return { success: false }
         }

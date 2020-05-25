@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Popover } from 'antd'
 import styled from 'styled-components'
+import { inject } from 'mobx-react'
 
 import Storage from '@/utils/storage'
 
@@ -82,11 +84,21 @@ const HeaderContainer = styled.header`
   }
 `
 
+@inject((stores) => ({
+  routingStore: stores.routing
+}))
 class Header extends Component {
+  static propTypes = {
+    routingStore: PropTypes.object
+  }
+
   _onLogout = (e) => {
     e.preventDefault()
+    const { routingStore } = this.props
+
 
     Storage.clear()
+    routingStore.replace('/login')
   }
 
   render() {
