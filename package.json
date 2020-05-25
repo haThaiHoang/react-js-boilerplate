@@ -15,7 +15,7 @@
     "lint": "eslint ./ && stylelint './src/**/*.js'"
   },
   "dependencies": {
-    "antd": "4.2.4",
+    "antd": "4.2.5",
     "classnames": "2.2.6",
     "core-js": "3.6.5",
     "formik": "2.1.4",
