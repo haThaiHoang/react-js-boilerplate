@@ -38,6 +38,12 @@
 >
 > CSS: `npm run stylelint`
 
+### Note
+If you have problem with hot-reloading file, excute few these command below to fix it:
+
+echo 100000 | sudo tee /proc/sys/fs/inotify/max_user_watches
+And then launch my run command using "-- --reset-cache"
+
 ## License
 
 © 2019-present BAP IT CO., JSC
