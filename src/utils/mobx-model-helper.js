@@ -69,11 +69,18 @@ const Model = types.model('MobxModelHelper', {
         if (onError) onError(e)
 
         if (!disabledErrorMessage) {
-          Notification.error(
-            (handleError && (ERROR_MESSAGE[handleError(error)] || handleError(error)))
-            || (ERROR_MESSAGE[error.messageCode] || error.messageCode)
-            || error.message
-          )
+          if (handleError) {
+            const handledError = handleError(error)
+
+            if (handledError) {
+              Notification.error(ERROR_MESSAGE[handledError] || handledError)
+            }
+          } else {
+            Notification.error(
+              (ERROR_MESSAGE[error.messageCode] || error.messageCode)
+              || error.message
+            )
+          }
         }
       }
 
