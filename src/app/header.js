@@ -96,7 +96,6 @@ class Header extends Component {
     e.preventDefault()
     const { routingStore } = this.props
 
-
     Storage.clear()
     routingStore.replace('/login')
   }

@@ -3,9 +3,7 @@ import React, { Component } from 'react'
 import { forwardInnerRef } from '@/utils/high-order-functions'
 import Modal from '@/components/modal'
 
-
 @forwardInnerRef
-
 class ExampleModal extends Component {
   state = {
     isOpen: false

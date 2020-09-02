@@ -10,7 +10,6 @@ const StyledText = styled(Typography.Text)`
 const StyledParagraph = styled(Typography.Paragraph)`
 `
 
-
 export default class extends Component {
   static Title = ({ children, ...props }) => (
     <StyledTitle {...props}>{children}</StyledTitle>
