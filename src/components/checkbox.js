@@ -7,7 +7,7 @@ const StyledCheckbox = styled(AntdCheckbox)`
   /* stylelint-disable */
 `
 
-const Checkbox = ({ children, field, ...props }) => (
+const Checkbox = ({ children, field, form, ...props }) => (
   <StyledCheckbox
     {...props}
     {...field}
@@ -18,6 +18,7 @@ const Checkbox = ({ children, field, ...props }) => (
 )
 Checkbox.propTypes = {
   field: PropTypes.object,
+  form: PropTypes.object,
   checked: PropTypes.bool
 }
 
