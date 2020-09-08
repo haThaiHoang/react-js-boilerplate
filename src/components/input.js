@@ -7,14 +7,15 @@ const StyledInput = styled(AntdInput)`
   /* stylelint-disable */
 `
 
-const Input = ({ field, ...props }) => (
+const Input = ({ field, form, ...props }) => (
   <StyledInput
     {...field}
     {...props}
   />
 )
 Input.propTypes = {
-  field: PropTypes.object
+  field: PropTypes.object,
+  form: PropTypes.object
 }
 
 export default Input
