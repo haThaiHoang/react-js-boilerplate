@@ -13,6 +13,7 @@ const StyledSelect = styled(AntdSelect)`
 export default class extends Component {
   static propTypes = {
     field: PropTypes.object,
+    form: PropTypes.object,
     optionBinding: PropTypes.object,
     onChange: PropTypes.func,
     renderOption: PropTypes.func,
@@ -54,7 +55,7 @@ export default class extends Component {
   }
 
   render() {
-    const { field, options, onChange, optionBinding, value, renderOption, ...props } = this.props
+    const { field, form, options, onChange, optionBinding, value, renderOption, ...props } = this.props
 
     return (
       <StyledSelect
