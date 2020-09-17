@@ -79,8 +79,8 @@ class Request {
 
     if (this._options.handleToken && accessToken) {
       this._authorization = `Bearer ${accessToken}`
-      // if (!params) params = {}
-      // params.access_token = token
+    } else {
+      this._authorization = null
     }
 
     if (params) {
