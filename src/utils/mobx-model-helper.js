@@ -53,12 +53,12 @@ const Model = types.model('MobxModelHelper', {
           data = result
         }
       } catch (e) {
-        const error = yield Misc.getErrorJsonBody(e)
+        const error = (yield Misc.getErrorJsonBody(e)) || e
         self.error = error
         // eslint-disable-next-line no-console
         console.warn(error)
 
-        if (error.messageCode === 'TOKEN_INVALID') {
+        if (error.statusText === 'TOKEN_INVALID') {
           Request.removeAccessToken()
           Storage.remove('ACCESS_TOKEN')
           routingStore.replace('/login')
@@ -77,7 +77,7 @@ const Model = types.model('MobxModelHelper', {
             }
           } else {
             Notification.error(
-              (ERROR_MESSAGE[error.messageCode] || error.messageCode)
+              (ERROR_MESSAGE[error.statusText] || error.statusText)
               || error.message
             )
           }
