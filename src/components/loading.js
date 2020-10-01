@@ -35,9 +35,9 @@ const StyledDiv = styled.div`
   }
 `
 
-const Loading = ({ size }) => (
+const Loading = ({ size, className }) => (
   <StyledDiv
-    className={classnames(size)}
+    className={classnames(size, className)}
   />
 )
 Loading.propTypes = {
