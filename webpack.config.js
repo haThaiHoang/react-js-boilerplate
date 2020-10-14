@@ -91,7 +91,6 @@ module.exports = (env) => {
     devServer: {
       host: '0.0.0.0',
       useLocalIp: true,
-      compress: true,
       disableHostCheck: true,
       hot: true,
       hotOnly: true,
