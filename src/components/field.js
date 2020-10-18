@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import classNames from 'classnames'
-import { Field as FormikField, ErrorMessage } from 'formik'
+import { FastField as FormikField, ErrorMessage } from 'formik'
 
 const Box = styled.div`
   position: relative;
