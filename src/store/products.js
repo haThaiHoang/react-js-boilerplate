@@ -1,11 +1,11 @@
 import { types } from 'mobx-state-tree'
 
-import { Model, createTypes } from '@/utils/mobx-model-helper'
+import { Model } from '@/utils/mobx-model-helper'
 import { getProducts } from '@/api/products'
 
-const TYPES = createTypes([
-  'GET_PRODUCTS'
-])
+const TYPES = {
+  'GET_PRODUCTS': 1
+}
 
 const Product = types.model('Product')
   .props({
