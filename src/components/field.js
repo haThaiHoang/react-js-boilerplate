@@ -45,18 +45,18 @@ const Box = styled.div`
   }
 `
 const Field = ({
-  component: Component,
+  component: InputComponent,
+  className,
   name,
   label,
-  inline,
   ...props
 }) => (
-  <Box className={classNames('field', { inline })}>
+  <Box className={classNames(className, 'field')}>
     {label && (
       <p className="label">{label}</p>
     )}
     <div className="field-content">
-      <FormikField {...props} name={name} component={Component} />
+      <FormikField {...props} name={name} component={InputComponent} />
       <p className="error-message"><ErrorMessage name={name} /></p>
     </div>
   </Box>
