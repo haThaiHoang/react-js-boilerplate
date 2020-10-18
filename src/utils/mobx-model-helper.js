@@ -1,5 +1,4 @@
 import { types, flow, getSnapshot, applySnapshot } from 'mobx-state-tree'
-import lodash from 'lodash'
 
 import Notification from '@/components/notification'
 import Misc from '@/utils/misc'
@@ -90,13 +89,6 @@ const Model = types.model('MobxModelHelper', {
     })
   }))
 
-const createTypes = (typeArray) => lodash.reduce(typeArray, (map, value) => {
-  map[value] = value
-
-  return map
-}, {})
-
 export {
-  Model,
-  createTypes
+  Model
 }
