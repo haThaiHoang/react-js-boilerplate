@@ -1,31 +1,93 @@
-import React, { Component } from 'react'
-import { Typography } from 'antd'
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import classnames from 'classnames'
 
-const StyledTitle = styled(Typography.Title)`
-  /* stylelint-disable */
-`
-const StyledText = styled(Typography.Text)`
-`
-const StyledParagraph = styled(Typography.Paragraph)`
-`
+import { Colors } from '@/theme'
 
-export default class extends Component {
-  static Title = ({ children, ...props }) => (
-    <StyledTitle {...props}>{children}</StyledTitle>
-  )
-
-  static Text = ({ children, ...props }) => (
-    <StyledText {...props}>{children}</StyledText>
-  )
-
-  static Paragraph = ({ children, ...props }) => (
-    <StyledParagraph {...props}>{children}</StyledParagraph>
-  )
-
-  render() {
-    const { children, ...props } = this.props
-
-    return <Typography {...props}>{children}</Typography>
+const StyledP = styled.p`
+  text-align: ${(props) => props.align || 'left'};
+  font-weight: ${(props) => (props.bold ? 'bold' : 'normal')};
+  font-size: 14px;
+  
+  &.tiny {
+    font-size: 10px;
   }
+  
+  &.small {
+    font-size: 12px;
+  }
+  
+  &.large {
+    font-size: 16px;
+  }
+  
+  &.big {
+    font-size: 18px;
+  }
+  
+  &.huge {
+    font-size: 20px;
+  }
+  
+  &.giant {
+    font-size: 30px;
+  }
+  
+  &.enormous {
+    font-size: 40px;
+  }
+  
+  &.link {
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  &.underline {
+    text-decoration: underline;
+  }
+  
+  &.primary {
+    color: ${Colors.PRIMARY};
+  }
+
+  &.gray {
+    color: ${Colors.GRAY_COLOR_3};
+  }
+  
+  &.center {
+    text-align: center;
+  }
+`
+
+const Typography = ({
+  className,
+  children,
+  link,
+  underline,
+  primary,
+  center,
+  size,
+  ...props
+}) => (
+  <StyledP
+    className={classnames(size || '', {
+      link,
+      underline,
+      primary,
+      center
+    }, 'typography', className)}
+    {...props}
+  >
+    {children}
+  </StyledP>
+)
+Typography.propTypes = {
+  size: PropTypes.string,
+  link: PropTypes.bool,
+  primary: PropTypes.bool,
+  underline: PropTypes.bool,
+  center: PropTypes.bool
 }
+
+export default Typography
