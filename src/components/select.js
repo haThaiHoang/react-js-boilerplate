@@ -1,45 +1,58 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Select as AntdSelect } from 'antd'
-import lodash from 'lodash'
 import styled from 'styled-components'
+import classnames from 'classnames'
+import lodash from 'lodash'
+import { observer } from 'mobx-react'
+import { Select as AntdSelect } from 'antd'
+
+const StyledSelect = styled(AntdSelect)`
+  &.error {
+    &.ant-select-single {
+      .ant-select-selector {
+        border: solid 1px red;
+      }
+    }
+  }
+`
 
 const { Option } = AntdSelect
 
-const StyledSelect = styled(AntdSelect)`
-  /* stylelint-disable */
-`
-
-export default class extends Component {
+@observer
+class Select extends Component {
   static propTypes = {
     field: PropTypes.object,
     form: PropTypes.object,
-    optionBinding: PropTypes.object,
-    onChange: PropTypes.func,
-    renderOption: PropTypes.func,
-    name: PropTypes.string,
     options: PropTypes.array,
-    value: PropTypes.any
+    optionBinding: PropTypes.object,
+    value: PropTypes.any,
+    size: PropTypes.oneOf(['small', 'middle']),
+    onChange: PropTypes.func,
+    error: PropTypes.bool
+  }
+
+  static defaultProps = {
+    options: []
   }
 
   _onChange = (value) => {
-    const { field, onChange, name } = this.props
+    const { field, form, onChange } = this.props
 
-    if (onChange) onChange({ target: { value, name: field?.name || name } })
-    if (!lodash.isEmpty(field)) field.onChange({ target: { value, name: field.name } })
+    if (onChange) onChange(value)
+
+    if (field && form) form.setFieldValue(field.name, value)
   }
 
-  _renderOption = (option, index) => {
+  _renderOption = (option) => {
     if (lodash.isString(option) || lodash.isNumber(option)) {
-      return <Option key={index} value={option}>{lodash.upperFirst(option)}</Option>
+      return <Option key={option} value={option}>{option}</Option>
     }
 
-    const { optionBinding, renderOption } = this.props
+    const { optionBinding } = this.props
 
     let value
     let name
     if (lodash.isEmpty(optionBinding)) {
-      /* eslint-disable prefer-destructuring */
       value = option.value
       name = option.name
     } else {
@@ -48,24 +61,36 @@ export default class extends Component {
     }
 
     return (
-      <Option key={index} value={value} name={name}>
-        {renderOption ? renderOption({ value, name }) : name}
-      </Option>
+      <Option key={value} value={value}>{name}</Option>
     )
   }
 
   render() {
-    const { field, form, options, onChange, optionBinding, value, renderOption, ...props } = this.props
+    const {
+      field,
+      form,
+      value,
+      error,
+      className,
+      options,
+      onChange,
+      optionBinding,
+      ...props
+    } = this.props
 
     return (
       <StyledSelect
-        {...field}
         {...props}
-        onChange={this._onChange}
         value={field?.value || value}
+        onChange={this._onChange}
+        className={classnames({
+          error: lodash.get(form, `errors.${field?.name}`) || error
+        }, 'select', className)}
       >
         {options.map(this._renderOption)}
       </StyledSelect>
     )
   }
 }
+
+export default Select
