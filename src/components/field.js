@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import classNames from 'classnames'
-import { FastField as FormikField, ErrorMessage } from 'formik'
+import { FastField as FormikFastField, Field as FormikField, ErrorMessage } from 'formik'
 
 const Box = styled.div`
   position: relative;
@@ -49,23 +49,32 @@ const Field = ({
   className,
   name,
   label,
+  blockUnnecessaryRerender,
   ...props
-}) => (
-  <Box className={classNames(className, 'field')}>
-    {label && (
-      <p className="label">{label}</p>
-    )}
-    <div className="field-content">
-      <FormikField {...props} name={name} component={InputComponent} />
-      <p className="error-message"><ErrorMessage name={name} /></p>
-    </div>
-  </Box>
-)
+}) => {
+  const FieldComponent = blockUnnecessaryRerender ? FormikFastField : FormikField
+  
+  return (
+    <Box className={classNames(className, 'field')}>
+      {label && (
+        <p className="label">{label}</p>
+      )}
+      <div className="field-content">
+        <FormikField {...props} name={name} component={InputComponent} />
+        <p className="error-message"><ErrorMessage name={name} /></p>
+      </div>
+    </Box>
+  )
+}
 Field.propTypes = {
   component: PropTypes.func,
   name: PropTypes.string,
   label: PropTypes.string,
-  inline: PropTypes.bool
+  inline: PropTypes.bool,
+  blockUnnecessaryRerender: PropTypes.bool
+}
+Field.defaultProps = {
+  blockUnnecessaryRerender: true
 }
 
 export default Field
