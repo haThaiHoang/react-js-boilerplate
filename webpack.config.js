@@ -28,6 +28,7 @@ module.exports = (env) => {
     entry: path.resolve(__dirname, IS_DEV ? 'src/index.dev.js' : 'src'),
     output: {
       filename: '[name][hash].js',
+      chunkFilename: '[name][hash].js',
       path: path.resolve(__dirname, 'build'),
       publicPath: getAppConfig(NODE_ENV).PUBLIC_PATH
     },
