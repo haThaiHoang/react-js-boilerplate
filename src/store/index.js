@@ -4,10 +4,11 @@ import { createBrowserHistory } from 'history'
 import { RouterStore, syncHistoryWithStore } from 'mobx-react-router'
 import { Router } from 'react-router-dom'
 
+import Configs from '@/configs'
 import auth from './auth'
 import products from './products'
 
-const browserHistory = createBrowserHistory()
+const browserHistory = createBrowserHistory({ basename: Configs.BASE_NAME })
 export const routingStore = new RouterStore()
 const history = syncHistoryWithStore(browserHistory, routingStore)
 
