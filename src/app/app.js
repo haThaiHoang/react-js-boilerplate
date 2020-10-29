@@ -10,8 +10,9 @@ import Routes from './routes'
 const App = () => (
   <Store>
     <Theme>
-      <Init />
-      <Routes />
+      <Init>
+        <Routes />
+      </Init>
     </Theme>
   </Store>
 )
