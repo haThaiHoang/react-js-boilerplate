@@ -14,10 +14,16 @@ setLocale({
 })
 
 class Init extends Component {
-  componentDidMount() {
+  state = {
+    inited: false
+  }
+  
+  async componentDidMount() {
     const token = Storage.get('ACCESS_TOKEN')
     Request.setAccessToken(token)
 
+    this.setState({ inited: true })
+    
     this._hidePreloading()
   }
 
@@ -38,7 +44,10 @@ class Init extends Component {
   }
 
   render() {
-    return null
+    const { children } = this.props
+    const { inited } = this.state
+
+    return inited ? children : null
   }
 }
 
