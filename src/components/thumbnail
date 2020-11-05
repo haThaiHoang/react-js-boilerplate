@@ -20,7 +20,7 @@ const Image = styled.div`
 
 const Thumbnail = ({ url, size, style, placeholderUrl, rounded, className, ...props }) => (
   <Image
-    style={{ backgroundImage: `url(${url || placeholderUrl || Images.AVATAR_PLACEHOLDER})`, ...style }}
+    style={{ backgroundImage: `url(${url || placeholderUrl || Images.NO_IMAGE})`, ...style }}
     {...props}
     className={classNames(className, { rounded })}
     size={size || 40}
