@@ -2,11 +2,11 @@
 const lodash = require('lodash')
 
 const NODE_ENV = process.env.NODE_ENV || 'development'
-const IS_DEV = NODE_ENV === 'development'
+const IS_DEV = NODE_ENV === 'local'
 
 const configs = {
   plugins: {
-    'autoprefixer': {
+    autoprefixer: {
       flexbox: 'no-2009'
     }
   }
@@ -14,7 +14,7 @@ const configs = {
 
 const prodConfigs = {
   plugins: {
-    'cssnano': {}
+    cssnano: {}
   }
 }
 

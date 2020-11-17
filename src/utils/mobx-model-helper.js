@@ -1,6 +1,6 @@
 import { types, flow, getSnapshot, applySnapshot } from 'mobx-state-tree'
 
-import Notification from '@/components/notification'
+import Toast from '@/components/toast'
 import Misc from '@/utils/misc'
 import Request from '@/utils/request'
 import ERROR_MESSAGE from '@/constants/error-messages'
@@ -45,7 +45,7 @@ const Model = types.model('MobxModelHelper', {
           if (onSuccess) onSuccess(result)
 
           if (successMessage) {
-            Notification.show(successMessage)
+            Toast.show(successMessage)
           }
 
           success = true
@@ -72,10 +72,10 @@ const Model = types.model('MobxModelHelper', {
             const handledError = handleError(error)
 
             if (handledError) {
-              Notification.error(ERROR_MESSAGE[handledError] || handledError)
+              Toast.error(ERROR_MESSAGE[handledError] || handledError)
             }
           } else {
-            Notification.error(
+            Toast.error(
               (ERROR_MESSAGE[error.statusText] || error.statusText)
               || error.message
             )

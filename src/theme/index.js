@@ -6,20 +6,20 @@ import * as Colors from './colors'
 
 class Theme extends Component {
   state = {
-    primary: Colors.PRIMARY1
+    primary: Colors.PRIMARY
   }
 
-  _switchTheme = (type) => {
-    this.setState({
-      primary: type === 1 ? Colors.PRIMARY1 : type === 2 ? Colors.PRIMARY2 : Colors.PRIMARY3
-    })
-  }
+  // _switchTheme = (type) => {
+  //   this.setState({
+  //     primary: type === 1 ? Colors.PRIMARY : type === 2 ? Colors.PRIMARY2 : Colors.PRIMARY3
+  //   })
+  // }
 
   render() {
     const { children } = this.props
     const theme = {
-      ...this.state,
-      switchTheme: this._switchTheme
+      ...this.state
+      // switchTheme: this._switchTheme
     }
 
     return (

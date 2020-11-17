@@ -1,4 +1,4 @@
-import '@/resources/styles/preloading.scss'
+import '@/resources/styles/preloading.less'
 import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 import 'whatwg-fetch'

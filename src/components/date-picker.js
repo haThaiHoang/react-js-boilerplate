@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import classnames from 'classnames'
-import { DatePicker } from 'antd'
+import { DatePicker as AntDatePicker } from 'antd'
 import moment from 'moment'
 import lodash from 'lodash'
 
@@ -43,7 +43,7 @@ class DatePicker extends Component {
       <StyledDiv
         className={classnames({ error: lodash.get(form, `errors.${field?.name}`) }, className)}
       >
-        <DatePicker
+        <AntDatePicker
           {...props}
           onChange={this._onChange}
           value={value}

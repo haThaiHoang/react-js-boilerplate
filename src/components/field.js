@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import classNames from 'classnames'
 import { FastField as FormikFastField, Field as FormikField, ErrorMessage } from 'formik'
 
+import Typography from './typography'
+
 const Box = styled.div`
   position: relative;
 
@@ -44,6 +46,7 @@ const Box = styled.div`
     }
   }
 `
+
 const Field = ({
   component: InputComponent,
   className,
@@ -53,15 +56,21 @@ const Field = ({
   ...props
 }) => {
   const FieldComponent = blockUnnecessaryRerender ? FormikFastField : FormikField
-  
+
   return (
     <Box className={classNames(className, 'field')}>
       {label && (
         <p className="label">{label}</p>
       )}
       <div className="field-content">
-        <FormikField {...props} name={name} component={InputComponent} />
-        <p className="error-message"><ErrorMessage name={name} /></p>
+        <FieldComponent {...props} name={name} component={InputComponent} />
+        <ErrorMessage name={name}>
+          {(msg) => msg && (
+            <div className="error-box">
+              <Typography size="tiny" className="error-message">{msg}</Typography>
+            </div>
+          )}
+        </ErrorMessage>
       </div>
     </Box>
   )

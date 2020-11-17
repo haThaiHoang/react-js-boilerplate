@@ -17,13 +17,13 @@ class Init extends Component {
   state = {
     inited: false
   }
-  
+
   async componentDidMount() {
     const token = Storage.get('ACCESS_TOKEN')
     Request.setAccessToken(token)
 
     this.setState({ inited: true })
-    
+
     this._hidePreloading()
   }
 

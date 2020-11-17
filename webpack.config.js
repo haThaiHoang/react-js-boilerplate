@@ -16,12 +16,11 @@ function getAppConfig(env) {
 
 module.exports = (env) => {
   const NODE_ENV = (env && env.NODE_ENV) || 'development'
-  const IS_DEV = NODE_ENV === 'development' || NODE_ENV === 'local'
+  const IS_DEV = NODE_ENV === 'local'
 
   process.env.NODE_ENV = NODE_ENV
 
   console.log('Node ENV: %s', NODE_ENV)
-  console.log('Configs: ', getAppConfig(NODE_ENV));
 
   return {
     devtool: IS_DEV ? 'source-map' : false,
@@ -49,12 +48,19 @@ module.exports = (env) => {
         exclude: /(node_modules|bower_components)/,
         use: ['babel-loader']
       }, {
-        test: /\.scss$/,
+        test: /\.less$/,
         use: [
           IS_DEV ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
-          'sass-loader'
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                javascriptEnabled: true,
+              },
+            },
+          }
         ]
       }, {
         test: /\.css$/,

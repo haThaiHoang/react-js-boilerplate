@@ -2,6 +2,8 @@
 import mockData from '@/utils/mock-api'
 /* eslint-disable max-len */
 export function getProducts() {
+  // return MainApi.get('/schedules', payload)
+
   return mockData({
     data: {
       products: [{

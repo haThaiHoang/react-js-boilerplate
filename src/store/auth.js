@@ -1,9 +1,9 @@
-import { Model, createTypes } from '@/utils/mobx-model-helper'
+import { Model } from '@/utils/mobx-model-helper'
 import { login } from '@/api/auth'
 
-const TYPES = createTypes([
-  'LOGIN'
-])
+const TYPES = {
+  LOGIN: 1
+}
 
 const AuthStore = Model.named('AuthStore')
   .actions((self) => ({
