@@ -58,6 +58,7 @@ const Model = types.model('MobxModelHelper', {
       } catch (e) {
         const error = (yield Misc.getErrorJsonBody(e)) || e
         self.error = error
+        data = error
         // eslint-disable-next-line no-console
         console.warn(error)
 
