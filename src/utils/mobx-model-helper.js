@@ -1,4 +1,4 @@
-import { types, flow, getSnapshot, applySnapshot } from 'mobx-state-tree'
+import { types, flow, getSnapshot, applySnapshot, destroy } from 'mobx-state-tree'
 
 import Toast from '@/components/toast'
 import Misc from '@/utils/misc'
@@ -8,7 +8,7 @@ import { routingStore } from '@/store'
 import Storage from './storage'
 
 const Model = types.model('MobxModelHelper', {
-  type: types.maybeNull(types.string),
+  type: types.maybeNull(types.number),
   error: types.frozen()
 })
   .actions((self) => ({
@@ -18,6 +18,10 @@ const Model = types.model('MobxModelHelper', {
 
     clear() {
       applySnapshot(self, self.INIT_VALUES)
+    },
+
+    remove(item) {
+      destroy(item)
     },
 
     request: flow(function* ({
@@ -57,7 +61,7 @@ const Model = types.model('MobxModelHelper', {
         // eslint-disable-next-line no-console
         console.warn(error)
 
-        if (error.statusText === 'TOKEN_INVALID') {
+        if (['TOKEN_EXPIRED', 'TOKEN_INVALID', 'PERMISSION_DENIED'].includes(error.statusText)) {
           Request.removeAccessToken()
           Storage.remove('ACCESS_TOKEN')
           routingStore.replace('/login')
