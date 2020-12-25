@@ -38,9 +38,9 @@ class Select extends Component {
   _onChange = (value) => {
     const { field, form, onChange } = this.props
 
-    if (onChange) onChange(value)
+    if (onChange) onChange(value || null)
 
-    if (field && form) form.setFieldValue(field.name, value)
+    if (field && form) form.setFieldValue(field.name, value || null)
   }
 
   _renderOption = (option) => {
