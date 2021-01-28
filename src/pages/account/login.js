@@ -13,6 +13,7 @@ import Input from '@/components/input'
 import Button from '@/components/button'
 import Page from '@/components/page'
 import Field from '@/components/field'
+import VALIDATION_MESSAGES from '@/constants/validation-messages'
 
 const StyledContainer = styled(Container)`
   display: flex;
@@ -59,8 +60,8 @@ const StyledContainer = styled(Container)`
 `
 
 const validationSchema = object().shape({
-  username: string().required(),
-  password: string().required()
+  username: string().required(VALIDATION_MESSAGES.USERNAME_REQUIRED),
+  password: string().required(VALIDATION_MESSAGES.PASSWORD_REQUIRED)
 })
 
 @inject((stores) => ({
