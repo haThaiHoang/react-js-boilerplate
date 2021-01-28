@@ -94,7 +94,7 @@ class Login extends Component {
     }
   }
 
-  _renderForm = ({ handleSubmit, isValid }) => {
+  _renderForm = ({ handleSubmit }) => {
     const { loading } = this.state
 
     return (
@@ -120,7 +120,6 @@ class Login extends Component {
         </div>
         <div className="action-box">
           <Button
-            disabled={!isValid}
             size="large"
             htmlType="submit"
             type="primary"
@@ -144,12 +143,8 @@ class Login extends Component {
       <Page>
         <StyledContainer>
           <Formik
-            // validateOnChange={false}
-            // validateOnBlur={false}
-            initialErrors={{
-              username: 'Required',
-              password: 'Required'
-            }}
+            validateOnChange={false}
+            validateOnBlur={false}
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={this._onSubmit}

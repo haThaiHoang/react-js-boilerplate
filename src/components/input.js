@@ -6,7 +6,7 @@ import { Input as AntInput } from 'antd'
 import lodash from 'lodash'
 
 const StyledInput = styled(AntInput)`
-  // Custom placeholder
+  // Custom placeholder color
 
   //::placeholder {
   //  color: #b0b4b5;

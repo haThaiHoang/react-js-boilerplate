@@ -105,11 +105,6 @@ class Header extends Component {
       <HeaderContainer>
         <div className="content">
           <div className="left-box">
-            {/* <Icon */}
-            {/*  onClick={toggleSideBar} */}
-            {/*  className="menu-button" */}
-            {/*  type="menu" */}
-            {/* /> */}
             <p className="title">React JS Boilerplate</p>
           </div>
           <div className="right-box">
@@ -122,7 +117,7 @@ class Header extends Component {
               <div className="user-box">
                 <img
                   className="avatar"
-                  src="https://media.giaoducthoidai.vn/Uploaded/tranghn/2019-05-15/n6-MDJP.jpg"
+                  src="https://picsum.photos/300"
                   alt=""
                 />
                 <p className="name">Hoanght</p>

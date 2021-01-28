@@ -63,7 +63,6 @@ class SideBar extends Component {
 
   render() {
     return (
-      // <Box className={uiStore.isSideBarOpen ? 'open' : ''}>
       <Box className="open">
         <div className="surfing-box">
           <div className="menu">
