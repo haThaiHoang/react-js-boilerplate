@@ -7,7 +7,6 @@ import { inject, observer } from 'mobx-react'
 
 import Request from '@/utils/request'
 import Storage from '@/utils/storage'
-import { Images } from '@/theme'
 import Container from '@/components/container'
 import Input from '@/components/input'
 import Button from '@/components/button'
@@ -100,11 +99,6 @@ class Login extends Component {
 
     return (
       <Form className="form">
-        <img
-          src={Images.LOGO}
-          alt=""
-          className="logo"
-        />
         <p className="title">LOGIN</p>
         <div className="field-group">
           <Field
