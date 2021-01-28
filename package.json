@@ -68,7 +68,7 @@
     "html-webpack-plugin": "4.5.1",
     "less": "4.1.0",
     "less-loader": "7.3.0",
-    "mini-css-extract-plugin": "1.3.4",
+    "mini-css-extract-plugin": "1.3.5",
     "postcss": "8.2.4",
     "postcss-loader": "4.2.0",
     "style-loader": "2.0.0",
