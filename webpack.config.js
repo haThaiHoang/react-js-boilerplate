@@ -24,6 +24,7 @@ module.exports = (env) => {
 
   return {
     devtool: IS_DEV ? 'source-map' : false,
+    target: IS_DEV ? 'web' : 'browserslist',
     entry: path.resolve(__dirname, IS_DEV ? 'src/index.dev.js' : 'src'),
     output: {
       filename: '[name][fullhash].js',
@@ -80,6 +81,11 @@ module.exports = (env) => {
       }, {
         test: /\.(jpg|jpeg|png|svg|woff|eot|ttf|otf|pdf)$/,
         use: ['file-loader']
+      }, {
+        test: /\.m?js/,
+        resolve: {
+          fullySpecified: false
+        }
       }]
     },
     plugins: [
@@ -99,7 +105,6 @@ module.exports = (env) => {
       useLocalIp: true,
       disableHostCheck: true,
       hot: true,
-      hotOnly: true,
       open: true,
       overlay: true,
       stats: 'minimal',
