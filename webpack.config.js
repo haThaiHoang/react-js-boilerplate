@@ -26,8 +26,8 @@ module.exports = (env) => {
     devtool: IS_DEV ? 'source-map' : false,
     entry: path.resolve(__dirname, IS_DEV ? 'src/index.dev.js' : 'src'),
     output: {
-      filename: '[name][hash].js',
-      chunkFilename: '[name][hash].js',
+      filename: '[name][fullhash].js',
+      chunkFilename: '[name][fullhash].js',
       path: path.resolve(__dirname, 'build'),
       publicPath: getAppConfig(NODE_ENV).PUBLIC_PATH
     },
@@ -38,7 +38,6 @@ module.exports = (env) => {
     },
     resolve: {
       alias: {
-        "@ant-design/icons/lib/dist$": path.resolve(__dirname, "src/overwrite/antd-icons"),
         "@": path.resolve(__dirname, "src")
       }
     },
