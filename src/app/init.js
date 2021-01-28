@@ -1,8 +1,11 @@
 import { Component } from 'react'
 import setLocale from 'yup/lib/setLocale'
+import FontFaceObserver from 'fontfaceobserver'
 
 import Request from '@/utils/request'
 import Storage from '@/utils/storage'
+
+const font = new FontFaceObserver('Nunito')
 
 setLocale({
   mixed: {
@@ -23,6 +26,13 @@ class Init extends Component {
     Request.setAccessToken(token)
 
     this.setState({ inited: true })
+
+    try {
+      await font.load()
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error('Load Fontface failed')
+    }
 
     this._hidePreloading()
   }
