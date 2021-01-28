@@ -50,10 +50,6 @@ const StyledP = styled.p`
   &.primary {
     color: ${Colors.PRIMARY};
   }
-
-  &.gray {
-    color: ${Colors.GRAY_COLOR_3};
-  }
   
   &.center {
     text-align: center;

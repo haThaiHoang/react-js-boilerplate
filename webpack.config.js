@@ -24,10 +24,11 @@ module.exports = (env) => {
 
   return {
     devtool: IS_DEV ? 'source-map' : false,
+    target: IS_DEV ? 'web' : 'browserslist',
     entry: path.resolve(__dirname, IS_DEV ? 'src/index.dev.js' : 'src'),
     output: {
-      filename: '[name][hash].js',
-      chunkFilename: '[name][hash].js',
+      filename: '[name][fullhash].js',
+      chunkFilename: '[name][fullhash].js',
       path: path.resolve(__dirname, 'build'),
       publicPath: getAppConfig(NODE_ENV).PUBLIC_PATH
     },
@@ -38,7 +39,6 @@ module.exports = (env) => {
     },
     resolve: {
       alias: {
-        "@ant-design/icons/lib/dist$": path.resolve(__dirname, "src/overwrite/antd-icons"),
         "@": path.resolve(__dirname, "src")
       }
     },
@@ -81,6 +81,11 @@ module.exports = (env) => {
       }, {
         test: /\.(jpg|jpeg|png|svg|woff|eot|ttf|otf|pdf)$/,
         use: ['file-loader']
+      }, {
+        test: /\.m?js/,
+        resolve: {
+          fullySpecified: false
+        }
       }]
     },
     plugins: [
@@ -100,7 +105,6 @@ module.exports = (env) => {
       useLocalIp: true,
       disableHostCheck: true,
       hot: true,
-      hotOnly: true,
       open: true,
       overlay: true,
       stats: 'minimal',
