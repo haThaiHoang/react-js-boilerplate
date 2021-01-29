@@ -77,10 +77,8 @@
     "webpack-dev-server": "3.11.2"
   },
   "browserslist": [
-    "chrome >=72",
-    ">1%",
-    "last 4 versions",
-    "Firefox ESR",
-    "not ie < 9"
+    "last 1 version",
+    "> 1%",
+    "ie 10"
   ]
 }
