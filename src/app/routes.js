@@ -41,13 +41,6 @@ PrivateRoute.propTypes = {
 class Routes extends Component {
   _renderLazyComponent = (LazyComponent, params) => (props) => <LazyComponent {...props} {...params} />
 
-  // Add public routes here
-  _renderPublicRoutes = () => (
-    <>
-      <Route path="/login" component={this._renderLazyComponent(Login)} />
-    </>
-  )
-
   // Add private routes that need login here
   _renderPrivateRoutes = () => (
     <>
@@ -70,7 +63,7 @@ class Routes extends Component {
       <VerticalBox>
         <Suspense fallback={<Page><Loading /></Page>}>
           <Switch>
-            {this._renderPublicRoutes()}
+            <Route path="/login" component={this._renderLazyComponent(Login)} />
             <Route path="/not-found" component={this._renderLazyComponent(NotFound)} />
             <PrivateRoute
               condition={() => Storage.has('ACCESS_TOKEN')}
