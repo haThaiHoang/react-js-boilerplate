@@ -9,7 +9,7 @@ import Page from '@/components/page'
 import Header from './header'
 import SideBar from './side-bar'
 
-const Login = lazy(() => import('@/pages/account/login'))
+const Login = lazy(() => import('@/pages/auth/login'))
 const Home = lazy(() => import('@/pages/home'))
 const Settings = lazy(() => import('@/pages/settings'))
 const NotFound = lazy(() => import('@/pages/not-found'))
