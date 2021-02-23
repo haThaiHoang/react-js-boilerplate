@@ -33,18 +33,17 @@ const HeaderContainer = styled.header`
       align-items: center;
 
       .menu-button {
+        width: 20px;
+        height: 20px;
         margin-right: 20px;
-        font-size: 22px;
-        cursor: pointer;
-        transition: opacity 0.2s;
-        user-select: none;
-
-        &:hover {
-          opacity: 0.8;
-        }
-
-        &:active {
-          opacity: 0.6;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+        div {
+          height: 2px;
+          width: 100%;
+          background-color: white;
         }
       }
 
@@ -111,10 +110,12 @@ const HeaderContainer = styled.header`
 
 @withTranslation('common')
 @inject((stores) => ({
+  uiStore: stores.ui,
   routingStore: stores.routing
 }))
 class Header extends Component {
   static propTypes = {
+    uiStore: PropTypes.object,
     routingStore: PropTypes.object
   }
 
@@ -132,6 +133,12 @@ class Header extends Component {
     i18n.changeLanguage(language)
   }
 
+  _onToggleSideMenu = () => {
+    const { uiStore } = this.props
+
+    uiStore.toggleSideBar()
+  }
+
   render() {
     const { t, i18n } = this.props
 
@@ -139,6 +146,14 @@ class Header extends Component {
       <HeaderContainer>
         <div className="content">
           <div className="left-box">
+            <Clickable
+              className="menu-button"
+              onClick={this._onToggleSideMenu}
+            >
+              <div />
+              <div />
+              <div />
+            </Clickable>
             <p className="title">{t('header.title')}</p>
           </div>
           <div className="right-box">

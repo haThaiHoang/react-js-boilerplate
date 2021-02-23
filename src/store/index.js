@@ -5,6 +5,7 @@ import { RouterStore, syncHistoryWithStore } from 'mobx-react-router'
 import { Router } from 'react-router-dom'
 
 import Configs from '@/configs'
+import ui from './ui'
 import assets from './assets'
 import auth from './auth'
 import products from './products'
@@ -15,6 +16,7 @@ const history = syncHistoryWithStore(browserHistory, routingStore)
 
 const stores = {
   routing: routingStore,
+  ui,
   assets,
   auth,
   products

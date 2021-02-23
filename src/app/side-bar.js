@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 import { withTranslation } from 'react-i18next'
+import { inject, observer } from 'mobx-react'
+import classnames from 'classnames'
 
 import { Colors } from '@/theme'
 
@@ -60,14 +63,22 @@ const MENU_ITEMS = [{
 }]
 
 @withTranslation('common')
+@inject((stores) => ({
+  uiStore: stores.ui
+}))
+@observer
 class SideBar extends Component {
+  static propTypes = {
+    uiStore: PropTypes.object
+  }
+
   state = {}
 
   render() {
-    const { t } = this.props
+    const { t, uiStore } = this.props
 
     return (
-      <Box className="open">
+      <Box className={classnames({ open: uiStore.sideBarStatus })}>
         <div className="surfing-box">
           <div className="menu">
             {MENU_ITEMS.map((item, index) => (
