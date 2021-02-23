@@ -11,7 +11,7 @@ import SideBar from './side-bar'
 
 const Login = lazy(() => import('@/pages/auth/login'))
 const Home = lazy(() => import('@/pages/home'))
-const Settings = lazy(() => import('@/pages/settings'))
+const Examples = lazy(() => import('@/pages/examples'))
 const NotFound = lazy(() => import('@/pages/not-found'))
 
 const VerticalBox = styled.div`
@@ -50,7 +50,7 @@ class Routes extends Component {
         <Suspense fallback={<Page sidebar><Loading /></Page>}>
           <Switch>
             <Route exact path="/" component={this._renderLazyComponent(Home)} />
-            <Route exact path="/settings" component={this._renderLazyComponent(Settings)} />
+            <Route exact path="/examples" component={this._renderLazyComponent(Examples)} />
             <Redirect to="/not-found" />
           </Switch>
         </Suspense>

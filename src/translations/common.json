@@ -6,7 +6,7 @@
       },
       "side_bar": {
         "home": "Home",
-        "components": "Components"
+        "examples": "Examples"
       }
     }
   },
@@ -17,7 +17,7 @@
       },
       "side_bar": {
         "home": "Trang chủ",
-        "components": "Các thành phần"
+        "examples": "Các ví dụ"
       }
     }
   }

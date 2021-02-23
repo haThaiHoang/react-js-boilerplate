@@ -55,8 +55,8 @@ const MENU_ITEMS = [{
   link: '/',
   name: 'home'
 }, {
-  link: '/components',
-  name: 'components'
+  link: '/examples',
+  name: 'examples'
 }]
 
 @withTranslation('common')

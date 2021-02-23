@@ -17,13 +17,13 @@ const Content = styled.div`
   }
 `
 
-export default class Settings extends Component {
+export default class Examples extends Component {
   render() {
     return (
       <Page>
         <Container>
           <Content>
-            <h1>Settings</h1>
+            <h1>Examples</h1>
             <Button
               type="primary"
               onClick={() => this._exampleModal.open()}
