@@ -6,37 +6,37 @@
 >
 > NodeJS: `v10.15.3`
 >
-> NPM: `v6.4.1`
+> Yarn: `v1.22.10`
 
 ### Install Dependencies
-> Install project dependencies: `npm install`
+> Install project dependencies: `yarn install`
 
 ### Development (For Developer)
-> Run: `npm start`
+> Run: `yarn start`
 >
 > Open browser at: `http://localhost:8080`
 >
 > Please install flug-in ESLINT into your IDE for code convention auto checking
 
-### Develop Build
-> Run: `npm run build:development`
+### Development Build
+> Run: `yarn build:development`
 >
 > Copy all content in `./build` for deployment
 
 ### Staging Build
-> Run: `npm run build:staging`
+> Run: `yarn build:staging`
 >
 > Copy all content in `./build` for deployment
 
 ### Production Build
-> Run: `npm run build`
+> Run: `yarn build:production`
 >
 > Copy all content in `./build` for deployment
 
 ### Check Convention
-> Javascript: `npm run lint`
+> Javascript: `yarn lint`
 >
-> CSS: `npm run stylelint`
+> CSS: `yarn stylelint`
 
 ### Note
 If you have problem with hot-reloading file, excute few these command below to fix it:
@@ -47,4 +47,4 @@ And then launch my run command using "-- --reset-cache"
 
 ## License
 
-© 2019-present BAP IT CO., JSC
+© 2021-present BAP IT CO., JSC

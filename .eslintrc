@@ -47,7 +47,7 @@
     "func-names": ["error", "never"],
     "import/prefer-default-export": 0,
     "react/prop-types": ["error", {
-      "ignore": ["children", "className", "style", "history"]
+      "ignore": ["children", "className", "style", "history", "match", "t", "i18n"]
     }]
   },
   "settings": {

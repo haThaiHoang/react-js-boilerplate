@@ -3,8 +3,12 @@ import PropTypes from 'prop-types'
 import { Popover } from 'antd'
 import styled from 'styled-components'
 import { inject } from 'mobx-react'
+import { withTranslation } from 'react-i18next'
+import classnames from 'classnames'
 
 import Storage from '@/utils/storage'
+import Clickable from '@/components/clickable'
+import { Colors } from '@/theme'
 
 const HeaderContainer = styled.header`
   width: 100%;
@@ -58,7 +62,7 @@ const HeaderContainer = styled.header`
       .user-box {
         display: flex;
         align-items: center;
-        margin-right: 37px;
+        margin-right: 20px;
         cursor: pointer;
         user-select: none;
 
@@ -80,10 +84,32 @@ const HeaderContainer = styled.header`
           font-size: 12px;
         }
       }
+      
+      .language-box {
+        display: flex;
+        
+        .language-button {
+          margin-left: 10px;
+          border: 1px solid white;
+          width: 35px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 4px;
+          padding-top: 2px;
+          transition: color 0.2s, background-color 0.2s;
+          
+          &.active {
+            background-color: white;
+            color: ${Colors.PRIMARY};
+          }
+        }
+      }
     }
   }
 `
 
+@withTranslation()
 @inject((stores) => ({
   routingStore: stores.routing
 }))
@@ -100,12 +126,20 @@ class Header extends Component {
     routingStore.replace('/login')
   }
 
+  _onChangeLanguage = (language) => {
+    const { i18n } = this.props
+
+    i18n.changeLanguage(language)
+  }
+
   render() {
+    const { t, i18n } = this.props
+
     return (
       <HeaderContainer>
         <div className="content">
           <div className="left-box">
-            <p className="title">React JS Boilerplate</p>
+            <p className="title">{t('header.title')}</p>
           </div>
           <div className="right-box">
             <Popover
@@ -120,9 +154,19 @@ class Header extends Component {
                   src="https://picsum.photos/300"
                   alt=""
                 />
-                <p className="name">Hoanght</p>
+                <p className="name">hoanght</p>
               </div>
             </Popover>
+            <div className="language-box">
+              {['en', 'vi'].map((item) => (
+                <Clickable
+                  className={classnames('language-button', { active: item === i18n.language })}
+                  onClick={() => this._onChangeLanguage(item)}
+                >
+                  {item.toUpperCase()}
+                </Clickable>
+              ))}
+            </div>
           </div>
         </div>
       </HeaderContainer>

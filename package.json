@@ -11,7 +11,7 @@
     "start:production": "webpack serve --env NODE_ENV=production",
     "build:development": "rm -rf build && webpack --env NODE_ENV=development --progress",
     "build:staging": "rm -rf build && webpack --env NODE_ENV=staging --progress",
-    "build": "rm -rf build && webpack --env NODE_ENV=production --progress",
+    "build:production": "rm -rf build && webpack --env NODE_ENV=production --progress",
     "lint": "eslint ./"
   },
   "dependencies": {

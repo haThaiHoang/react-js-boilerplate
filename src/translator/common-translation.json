@@ -1,0 +1,12 @@
+{
+  "en": {
+    "translation": {
+      "header.title": "React JS Boilerplate"
+    }
+  },
+  "vi": {
+    "translation": {
+      "header.title": "Bản mẫu React JS"
+    }
+  }
+}
