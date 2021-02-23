@@ -109,7 +109,7 @@ const HeaderContainer = styled.header`
   }
 `
 
-@withTranslation()
+@withTranslation('common')
 @inject((stores) => ({
   routingStore: stores.routing
 }))
@@ -160,6 +160,7 @@ class Header extends Component {
             <div className="language-box">
               {['en', 'vi'].map((item) => (
                 <Clickable
+                  key={item}
                   className={classnames('language-button', { active: item === i18n.language })}
                   onClick={() => this._onChangeLanguage(item)}
                 >

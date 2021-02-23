@@ -1,0 +1,12 @@
+{
+  "en": {
+    "home": {
+      "hello": "Hello"
+    }
+  },
+  "vi": {
+    "home": {
+      "hello": "Xin chào"
+    }
+  }
+}

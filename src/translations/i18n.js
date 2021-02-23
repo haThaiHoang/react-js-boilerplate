@@ -1,12 +1,18 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
+import lodash from 'lodash'
 
-import commonTranslation from './common-translation.json'
+import common from './common.json'
+import home from './home.json'
+
+const resources = lodash.merge(
+  common,
+  home
+)
 
 i18n.use(initReactI18next).init({
-  resources: commonTranslation,
+  resources,
   lng: 'en',
-  keySeparator: false,
   interpolation: {
     escapeValue: false
   }

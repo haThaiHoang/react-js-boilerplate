@@ -11,7 +11,7 @@ const Content = styled.div`
   align-items: center;
 `
 
-@withTranslation()
+@withTranslation('home')
 class Home extends Component {
   state = {}
 
@@ -22,7 +22,7 @@ class Home extends Component {
       <Page>
         <Container>
           <Content>
-            <h1>{t('welcome')}</h1>
+            <h1>{t('hello')}</h1>
           </Content>
         </Container>
       </Page>

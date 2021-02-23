@@ -1,0 +1,16 @@
+{
+  "en": {
+    "common": {
+      "header": {
+        "title": "React JS Boilerplate"
+      }
+    }
+  },
+  "vi": {
+    "common": {
+      "header": {
+        "title": "Bản mẫu React JS"
+      }
+    }
+  }
+}

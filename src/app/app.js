@@ -6,7 +6,7 @@ import Store from '@/store'
 import Theme from '@/theme'
 import Init from './init'
 import Routes from './routes'
-import '@/translator/i18n'
+import '@/translations/i18n'
 
 const App = () => (
   <Store>
