@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
+import { withTranslation } from 'react-i18next'
 
 import { Colors } from '@/theme'
 
@@ -52,16 +53,19 @@ const Box = styled.div`
 
 const MENU_ITEMS = [{
   link: '/',
-  name: 'Home'
+  name: 'home'
 }, {
-  link: '/settings',
-  name: 'Settings'
+  link: '/components',
+  name: 'components'
 }]
 
+@withTranslation('common')
 class SideBar extends Component {
   state = {}
 
   render() {
+    const { t } = this.props
+
     return (
       <Box className="open">
         <div className="surfing-box">
@@ -73,7 +77,7 @@ class SideBar extends Component {
                 to={item.link}
                 className="menu-item"
               >
-                {item.name}
+                {t(`side_bar.${item.name}`)}
               </NavLink>
             ))}
           </div>
