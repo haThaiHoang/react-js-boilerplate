@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 
 import { forwardInnerRef } from '@/utils/high-order-functions'
 import Modal from '@/components/modal'

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Provider } from 'mobx-react'
 import { createBrowserHistory } from 'history'
 import { RouterStore, syncHistoryWithStore } from 'mobx-react-router'

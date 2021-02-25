@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import * as Images from './images'

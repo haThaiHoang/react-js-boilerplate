@@ -6,6 +6,8 @@
     "node": true
   },
   "rules": {
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
     "react/static-property-placement": 0,
     "react/require-default-props": 0,
     "react/forbid-prop-types": 0,

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Formik, Form } from 'formik'
 import { object, string } from 'yup'
