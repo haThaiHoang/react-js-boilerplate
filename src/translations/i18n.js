@@ -14,6 +14,7 @@ const resources = lodash.merge(
 i18n.use(initReactI18next).init({
   resources,
   lng: Storage.get('LANGUAGE') || 'en',
+  fallbackLng: Storage.get('LANGUAGE') || 'en',
   interpolation: {
     escapeValue: false
   }
