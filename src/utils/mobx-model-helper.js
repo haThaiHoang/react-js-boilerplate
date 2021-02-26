@@ -1,9 +1,10 @@
 import { types, flow, getSnapshot, applySnapshot, destroy } from 'mobx-state-tree'
+import i18n from '@/translations/i18n'
 
 import Toast from '@/components/toast'
 import Misc from '@/utils/misc'
 import Request from '@/utils/request'
-import ERROR_MESSAGE from '@/constants/error-messages'
+import ERROR_MESSAGES from '@/translations/error-messages'
 import { routingStore } from '@/store'
 import Storage from './storage'
 
@@ -73,15 +74,17 @@ const Model = types.model('MobxModelHelper', {
         if (onError) onError(e)
 
         if (!disabledErrorMessage) {
+          const errorMessages = ERROR_MESSAGES[i18n.language]['error-messages']
+
           if (handleError) {
             const handledError = handleError(error)
 
             if (handledError) {
-              Toast.error(ERROR_MESSAGE[handledError] || handledError)
+              Toast.error(errorMessages[handledError] || handledError)
             }
           } else {
             Toast.error(
-              (ERROR_MESSAGE[error.statusText] || error.statusText)
+              (errorMessages[error.statusText] || error.statusText)
               || error.message
             )
           }

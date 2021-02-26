@@ -103,12 +103,12 @@ class Login extends Component {
         <div className="field-group">
           <Field
             name="username"
-            label="User name"
+            label="Username (admin)"
             component={Input}
           />
           <Field
             name="password"
-            label="Password"
+            label="Password (123123123)"
             type="password"
             component={Input}
           />

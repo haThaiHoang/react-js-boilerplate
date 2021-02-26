@@ -123,7 +123,7 @@ class Header extends Component {
     e.preventDefault()
     const { routingStore } = this.props
 
-    Storage.clear()
+    Storage.remove('ACCESS_TOKEN')
     routingStore.replace('/login')
   }
 
