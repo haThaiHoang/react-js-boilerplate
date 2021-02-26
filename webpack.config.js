@@ -17,6 +17,7 @@ function getAppConfig(env) {
 module.exports = (env) => {
   const NODE_ENV = (env && env.NODE_ENV) || 'development'
   const IS_DEV = NODE_ENV === 'local'
+  const appConfigs = getAppConfig(NODE_ENV)
 
   process.env.NODE_ENV = NODE_ENV
 
@@ -30,7 +31,7 @@ module.exports = (env) => {
       filename: '[name][fullhash].js',
       chunkFilename: '[name][fullhash].js',
       path: path.resolve(__dirname, 'build'),
-      publicPath: getAppConfig(NODE_ENV).PUBLIC_PATH
+      publicPath: appConfigs.PUBLIC_PATH
     },
     optimization: {
       splitChunks: {
@@ -90,13 +91,14 @@ module.exports = (env) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
+        title: appConfigs.TITLE,
         template: path.resolve(__dirname, 'src/index.ejs'),
         favicon: path.resolve(__dirname, 'src/resources/images/favicon.ico')
       }),
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       new MiniCssExtractPlugin(),
       new webpack.DefinePlugin({
-        'window._CONFIG': JSON.stringify(getAppConfig(NODE_ENV)),
+        'window._CONFIG': JSON.stringify(appConfigs),
       }),
       new webpack.HotModuleReplacementPlugin()
     ],

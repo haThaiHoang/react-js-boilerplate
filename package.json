@@ -76,8 +76,8 @@
     "webpack-dev-server": "3.11.2"
   },
   "browserslist": [
-    "last 1 version",
-    "> 1%",
-    "ie 10"
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
   ]
 }
