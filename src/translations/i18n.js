@@ -6,6 +6,8 @@ import Storage from '@/utils/storage'
 import common from './common.json'
 import home from './home.json'
 
+const INIT_LANGUAGE = Storage.get('LANGUAGE') || 'en'
+
 const resources = lodash.merge(
   common,
   home
@@ -13,8 +15,8 @@ const resources = lodash.merge(
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: Storage.get('LANGUAGE') || 'en',
-  fallbackLng: Storage.get('LANGUAGE') || 'en',
+  lng: INIT_LANGUAGE,
+  fallbackLng: INIT_LANGUAGE,
   interpolation: {
     escapeValue: false
   }
