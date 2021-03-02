@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom'
 import '@/resources/styles'
 import Store from '@/store'
 import Theme from '@/theme'
-import Init from './init'
-import Routes from './routes'
+import Init from '@/app/init'
+import Routes from '@/app/routes'
+import Confirmable from '@/components/confirmable'
 import '@/translations/i18n'
 
 const App = () => (
@@ -13,6 +14,9 @@ const App = () => (
       <Init>
         <Routes />
       </Init>
+      <Confirmable
+        ref={(ref) => Confirmable.setInstance(ref)}
+      />
     </Theme>
   </Store>
 )

@@ -2,12 +2,12 @@ import { Component } from 'react'
 import { Modal } from 'antd'
 import styled from 'styled-components'
 
-import { Images } from '@/theme'
-import Clickable from '@/components/clickable'
 import Typography from '@/components/typography'
 import Button from '@/components/button'
 
 const StyledModal = styled(Modal)`
+  width: 300px!important;
+  
   .ant-modal-content {
     border-radius: 6px;
   
@@ -19,20 +19,8 @@ const StyledModal = styled(Modal)`
       padding: 0;
     
       .modal-content {
-        .header {
-          display: flex;
-          justify-content: flex-end;
-          padding: 8px;
-          
-          .close-button {
-            img {
-              width: 30px;
-            }
-          }
-        }
-        
         .body {
-          padding: 0 35px 40px;
+          padding: 20px;
           
           .action-box {
             padding-top: 20px;
@@ -46,19 +34,6 @@ const StyledModal = styled(Modal)`
               &:last-child {
                 margin-right: 0;
               }
-            }
-          }
-          p {
-            text-align: center;
-          }
-          button {
-            width: 120px;
-            background: #fff;
-            &:first-child {
-              color: #707070 !important;
-            }
-            &:last-child {
-              background: red;
             }
           }
         }
@@ -132,44 +107,23 @@ class Confirmable extends Component {
         footer={null}
       >
         <div className="modal-content">
-          <div className="header">
-            <Clickable
-              className="close-button"
-              onClick={this._onCancel}
-            >
-              <img
-                src={Images.GRAY_CLOSE_ICON}
-                alt=""
-              />
-            </Clickable>
-          </div>
           <div className="body">
             <Typography style={{ wordBreak: 'break-all' }}>
               {content}
             </Typography>
             <div className="action-box">
-              {!hideCancelButton ? (
+              {!hideCancelButton && (
                 <Button
                   color="#d0d0d0"
                   textColor="white"
                   onClick={this._onCancel}
                   className="action-button"
                 >
-                  キャンセル
-                </Button>
-              ) : (
-                <Button
-                  color="#d0d0d0"
-                  textColor="white"
-                  onClick={this._onCancel}
-                  className="action-button"
-                >
-                  {hideCancelButton}
+                  Close
                 </Button>
               )}
               <Button
-                color="#b0b4b5"
-                textColor="white"
+                type="primary"
                 onClick={this._onAccept}
                 className="action-button"
               >

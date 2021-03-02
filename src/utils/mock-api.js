@@ -1,4 +1,4 @@
-export default function ({ data, error, delay }) {
+export default function ({ data, error, duration }) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (error) {
@@ -6,6 +6,6 @@ export default function ({ data, error, delay }) {
       } else {
         resolve(data)
       }
-    }, delay || 300)
+    }, duration || 300)
   })
 }

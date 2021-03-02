@@ -8,13 +8,15 @@ export function login(payload) {
     return mockData({
       data: {
         token: 'SH6643HDHJSGFJSD73475674856'
-      }
+      },
+      duration: 1000
     })
   }
 
   return mockData({
     error: {
       statusText: 'USERNAME_OR_PASSWORD_INCORRECT'
-    }
+    },
+    duration: 1000
   })
 }
