@@ -7,6 +7,8 @@ import moment from 'moment'
 import lodash from 'lodash'
 
 const StyledDiv = styled.div`
+  // Put your custom styles for Date picker here
+  
   .ant-picker {
     width: 100%;
   }

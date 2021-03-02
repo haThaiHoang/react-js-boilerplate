@@ -7,6 +7,8 @@ import { observer } from 'mobx-react'
 import { Select as AntdSelect } from 'antd'
 
 const StyledSelect = styled(AntdSelect)`
+  // Put your custom styles for select here
+  
   &.error {
     &.ant-select-single {
       .ant-select-selector {

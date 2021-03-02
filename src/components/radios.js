@@ -5,7 +5,7 @@ import classnames from 'classnames'
 import { Radio } from 'antd'
 
 const StyledRadioGroup = styled(Radio.Group)`
-  
+  // Put your custom styles for Radios here
 `
 
 class Radios extends Component {
