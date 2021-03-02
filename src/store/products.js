@@ -19,18 +19,22 @@ const ProductsStore = Model.named('ProductsStore')
   .props({
     products: types.model({
       items: types.array(Product),
+      page: types.number,
+      sort: types.maybeNull(types.string),
       total: types.number
     })
   })
   .actions((self) => ({
-    getProducts({ concat, ...payload }) {
+    getProducts(payload, { page, sort }) {
       return self.request({
         type: TYPES.GET_PRODUCTS,
         api: getProducts,
         payload,
         onSuccess: (result) => {
           self.products = {
-            items: concat ? self.products.items.concat(result.products) : result.products,
+            items: result.products,
+            page,
+            sort,
             total: result.total
           }
         }
@@ -44,6 +48,7 @@ export {
 export default ProductsStore.create({
   products: {
     item: [],
+    page: 0,
     total: 0
   }
 })

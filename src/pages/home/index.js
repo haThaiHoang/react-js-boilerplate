@@ -6,9 +6,11 @@ import Page from '@/components/page'
 import Container from '@/components/container'
 
 const Content = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 30px 0;
+  
+  h1 {
+    font-size: 25px;
+  }
 `
 
 @withTranslation('home')

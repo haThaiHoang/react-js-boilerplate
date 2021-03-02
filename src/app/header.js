@@ -20,7 +20,7 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   padding: 0 20px;
   box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
-  z-index: 0;
+  z-index: 1;
 
   .content {
     width: 100%;

@@ -6,6 +6,7 @@
     "node": true
   },
   "rules": {
+    "no-async-promise-executor": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/static-property-placement": 0,

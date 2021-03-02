@@ -1,6 +1,6 @@
 import { MainApi, ExternalApi } from './endpoint'
 
-// eslint-disable-next-line no-async-promise-executor
+// Upload files to generated presigned S3 URL
 export const uploadFiles = ({ files }) => new Promise(async (resolve, reject) => {
   try {
     const signedPayload = Array.from(files)

@@ -6,6 +6,6 @@ export default function ({ data, error, delay }) {
       } else {
         resolve(data)
       }
-    }, delay || 1000)
+    }, delay || 300)
   })
 }

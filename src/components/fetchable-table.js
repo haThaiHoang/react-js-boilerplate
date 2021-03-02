@@ -56,7 +56,8 @@ class FetchableTable extends Component {
   }
 
   static defaultProps = {
-    autoFetchOnMount: true
+    autoFetchOnMount: true,
+    pagination: true
   }
 
   state = {
@@ -137,7 +138,7 @@ class FetchableTable extends Component {
   })
 
   render() {
-    const { items, page, total, sort, pagination = true, limit, ...props } = this.props
+    const { items, page, total, sort, pagination, limit, ...props } = this.props
     const columns = this._getColumns(sort)
     const finalLimit = limit || Configs.PAGINATION_PAGE_SIZE
 
@@ -148,7 +149,7 @@ class FetchableTable extends Component {
           columns={columns}
           dataSource={items}
         />
-        {pagination && total > finalLimit && (
+        {pagination && (
           <Table.Pagination
             total={total}
             pagination={false}
