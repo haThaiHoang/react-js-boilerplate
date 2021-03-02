@@ -1,34 +1,39 @@
 import styled from 'styled-components'
 
 import Button from '@/components/button'
+import Toast from '@/components/toast'
 
 const StyledDiv = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   
   > * {
-    margin-bottom: 10px;
+    margin-right: 10px;
     
     &:last-child {
-      margin-bottom: 0;
+      margin-right: 0;
     }
   }
 `
 
-export default () => (
-  (
+export default () => {
+  const onClick = (type) => {
+    if (type === 'show') Toast.show('This is a toast')
+    if (type === 'warning') Toast.warning('This is a warning toast')
+    if (type === 'error') Toast.error('This is a error toast')
+  }
+
+  return (
     <section>
       <p className="section-title">
         Toast
       </p>
       <div className="section-body">
         <StyledDiv>
-          <Button>Normal</Button>
-          <Button type="primary">Primary</Button>
-          <Button type="primary" loading>Primary - Loading</Button>
+          <Button type="primary" onClick={() => onClick('show')}>Show</Button>
+          <Button type="primary" onClick={() => onClick('warning')}>Warning</Button>
+          <Button type="primary" onClick={() => onClick('error')}>Error</Button>
         </StyledDiv>
       </div>
     </section>
   )
-)
+}
