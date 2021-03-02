@@ -4,6 +4,9 @@ import Page from '@/components/page'
 import Container from '@/components/container'
 import FetchableTableSection from './fetchable-table-section'
 import ModalSection from './modal-section'
+import TypographySection from './typography-section'
+import ButtonSection from './button-section'
+import ToastSection from './toast-section'
 
 const Content = styled.div`
   padding: 30px 0 100px;
@@ -32,7 +35,10 @@ export default () => (
   <Page>
     <Container>
       <Content>
+        <TypographySection />
+        <ButtonSection />
         <FetchableTableSection />
+        <ToastSection />
         <ModalSection />
       </Content>
     </Container>
