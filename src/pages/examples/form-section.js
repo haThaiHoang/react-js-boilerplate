@@ -6,6 +6,7 @@ import * as yup from 'yup'
 import Button from '@/components/button'
 import Field from '@/components/field'
 import Input from '@/components/input'
+import TextArea from '@/components/text-area'
 import Radios from '@/components/radios'
 import DatePicker from '@/components/date-picker'
 import ErrorFocuser from '@/components/error-focuser'
@@ -15,19 +16,25 @@ const StyledDiv = styled.div`
   .form {
     .field-groups {
       > * {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         
         &:last-child {
           margin-bottom: 0;
         }
       }
     }
+    
+    .action-box {
+      margin-top: 20px;
+    }
   }
 `
 
 const validationSchema = yup.object().shape({
   firstname: yup.string().required(),
-  lastName: yup.string().required()
+  lastName: yup.string().required(),
+  dateOfBirth: yup.string().required(),
+  email: yup.string().email().required()
 })
 
 class FormSection extends Component {
@@ -56,7 +63,7 @@ class FormSection extends Component {
             </Field.Inner>
           </Field.Wraper>
           <Field.Wraper>
-            <Field.Label required>Address</Field.Label>
+            <Field.Label>Address</Field.Label>
             <Field.Inner>
               <Field
                 placeholder="Address 1"
@@ -102,13 +109,50 @@ class FormSection extends Component {
             </Field.Inner>
           </Field.Wraper>
         </Field.Group>
+        <Field.Group>
+          <Field.Wraper>
+            <Field.Label>Phone</Field.Label>
+            <Field.Inner>
+              <Field
+                name="phone"
+                component={Input}
+              />
+            </Field.Inner>
+          </Field.Wraper>
+          <Field.Blank />
+        </Field.Group>
+        <Field.Group>
+          <Field.Wraper>
+            <Field.Label required>Email</Field.Label>
+            <Field.Inner>
+              <Field
+                placeholder="example@gmail.com"
+                name="email"
+                component={Input}
+              />
+            </Field.Inner>
+          </Field.Wraper>
+          <Field.Blank />
+        </Field.Group>
+        <Field.Group>
+          <Field.Wraper>
+            <Field.Label required>Description</Field.Label>
+            <Field.Inner>
+              <Field
+                name="description"
+                component={TextArea}
+              />
+            </Field.Inner>
+          </Field.Wraper>
+        </Field.Group>
       </div>
       <div className="action-box">
         <Button
+          type="primary"
           // loading={studentsStore.type === TYPES.CREATE_STUDENT}
           className="submit-button"
           onClick={handleSubmit}
-          type="submit"
+          htmlType="submit"
         >
           Submit
         </Button>
@@ -120,7 +164,9 @@ class FormSection extends Component {
     const initialValues = {
       gender: 1,
       firstname: '',
-      lastName: ''
+      lastName: '',
+      dateOfBirth: '',
+      email: ''
     }
 
     return (

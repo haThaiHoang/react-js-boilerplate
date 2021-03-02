@@ -7,6 +7,10 @@ import moment from 'moment'
 import lodash from 'lodash'
 
 const StyledDiv = styled.div`
+  .ant-picker {
+    width: 100%;
+  }
+  
   &.error {
     .ant-picker {
       border: solid 1px red;
