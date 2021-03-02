@@ -8,6 +8,7 @@ import Field from '@/components/field'
 import Input from '@/components/input'
 import TextArea from '@/components/text-area'
 import Radios from '@/components/radios'
+import Select from '@/components/select'
 import DatePicker from '@/components/date-picker'
 import ErrorFocuser from '@/components/error-focuser'
 import Format from '@/utils/format'
@@ -33,8 +34,9 @@ const StyledDiv = styled.div`
 const validationSchema = yup.object().shape({
   firstname: yup.string().required(),
   lastName: yup.string().required(),
-  dateOfBirth: yup.string().required(),
-  email: yup.string().email().required()
+  dateOfBirth: yup.string().nullable().required(),
+  email: yup.string().email().required(),
+  position: yup.string().nullable().required()
 })
 
 class FormSection extends Component {
@@ -136,6 +138,30 @@ class FormSection extends Component {
         </Field.Group>
         <Field.Group>
           <Field.Wraper>
+            <Field.Label required>Position</Field.Label>
+            <Field.Inner>
+              <Field
+                name="position"
+                allowClear
+                placeholder="Select a position"
+                component={Select}
+                options={[{
+                  name: 'Developer',
+                  value: 'developer'
+                }, {
+                  name: 'PM',
+                  value: 'pm'
+                }, {
+                  name: 'Leader',
+                  value: 'leader'
+                }]}
+              />
+            </Field.Inner>
+          </Field.Wraper>
+          <Field.Blank />
+        </Field.Group>
+        <Field.Group>
+          <Field.Wraper>
             <Field.Label required>Description</Field.Label>
             <Field.Inner>
               <Field
@@ -166,7 +192,8 @@ class FormSection extends Component {
       firstname: '',
       lastName: '',
       dateOfBirth: '',
-      email: ''
+      email: '',
+      position: ''
     }
 
     return (

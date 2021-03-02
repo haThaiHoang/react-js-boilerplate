@@ -8,6 +8,7 @@ import { Select as AntdSelect } from 'antd'
 
 const StyledSelect = styled(AntdSelect)`
   // Put your custom styles for select here
+  width: 100%;
   
   &.error {
     &.ant-select-single {

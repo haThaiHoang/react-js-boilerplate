@@ -34,7 +34,7 @@ class DatePicker extends Component {
 
     date = inputOutputFormat ? date?.format(inputOutputFormat) : date
 
-    if (form && field) form.setFieldValue(field.name, date)
+    if (form && field) form.setFieldValue(field.name, date || null)
     if (onChange) onChange(date)
   }
 
