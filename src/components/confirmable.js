@@ -114,8 +114,6 @@ class Confirmable extends Component {
             <div className="action-box">
               {!hideCancelButton && (
                 <Button
-                  color="#d0d0d0"
-                  textColor="white"
                   onClick={this._onCancel}
                   className="action-button"
                 >

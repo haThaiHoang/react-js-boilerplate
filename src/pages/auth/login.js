@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Formik, Form } from 'formik'
-import { object, string } from 'yup'
+import * as yup from 'yup'
 import styled from 'styled-components'
 import { inject, observer } from 'mobx-react'
 
@@ -58,9 +58,9 @@ const StyledContainer = styled(Container)`
   }
 `
 
-const validationSchema = object().shape({
-  username: string().required(VALIDATION_MESSAGES.USERNAME_REQUIRED),
-  password: string().required(VALIDATION_MESSAGES.PASSWORD_REQUIRED)
+const validationSchema = yup.object().shape({
+  username: yup.string().required(VALIDATION_MESSAGES.USERNAME_REQUIRED),
+  password: yup.string().required(VALIDATION_MESSAGES.PASSWORD_REQUIRED)
 })
 
 @inject((stores) => ({

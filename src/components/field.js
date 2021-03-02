@@ -1,88 +1,168 @@
+import { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import classNames from 'classnames'
 import { FastField as FormikFastField, Field as FormikField, ErrorMessage } from 'formik'
 
-import Typography from './typography'
+import Typography from '@/components/typography'
 
 const Box = styled.div`
   position: relative;
 
   .label {
-    margin-bottom: 12px;
+    margin-bottom: 6px;
   }
+`
+const Group = styled.div`
+  display: flex;
+`
 
-  .field-content {
-    .error-message {
-      text-align: right;
-      font-size: 12px;
-      color: red;
-      height: 18px;
-      margin-top: 3px;
-    }
+const Wraper = styled.div`
+  flex: 1;
+  margin-right: 40px;
+
+  &:last-child {
+    margin-right: 0;
   }
+`
 
-  &.inline {
-    display: flex;
-    align-items: center;
+const Label = styled.div`
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 6px;
 
-    .label {
-      width: 150px;
-      font-weight: 600;
-      font-size: 15px;
-      margin-bottom: 0;
-      letter-spacing: 0.29px;
-      color: #272727;
-    }
+  >.__name {
+    color: #849095;
+  }
+  
+  .__require {
+    margin-left: 10px;
+    margin-bottom: 3px;
+    color: red;
+  }
+`
 
-    .field-content {
-      flex: 1;
-      min-width: 0;
-
-      .error-message {
-        height: auto;
-      }
+const Inner = styled.div`
+  display: flex;
+  
+  > * {
+    flex: 1;
+    margin-right: 12px;
+    
+    &:last-child {
+      margin-right: 0;
     }
   }
 `
 
-const Field = ({
-  component: InputComponent,
-  className,
-  name,
-  label,
-  blockUnnecessaryRerender,
-  ...props
-}) => {
-  const FieldComponent = blockUnnecessaryRerender ? FormikFastField : FormikField
+const ViewOnly = styled.div`
+  height: 48px;
+  display: flex;
+  align-items: flex-start;
+  padding: 0 10px;
+  padding-top: 12px;
+`
 
-  return (
-    <Box className={classNames(className, 'field')}>
-      {label && (
-        <p className="label">{label}</p>
-      )}
-      <div className="field-content">
-        <FieldComponent {...props} name={name} component={InputComponent} />
-        <ErrorMessage name={name}>
-          {(msg) => msg && (
-            <div className="error-box">
-              <Typography size="tiny" className="error-message">{msg}</Typography>
-            </div>
-          )}
-        </ErrorMessage>
-      </div>
-    </Box>
+const Blank = styled.div`
+  flex: 1;
+`
+
+const Divider = styled.div`
+  padding: 0 4px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  margin-right: 0;
+  margin-left: -12px;
+  color: #707070;
+`
+
+const ErrorBox = styled.div`
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  
+  .error-message {
+    color: #ff0000;
+  }
+`
+
+class Field extends Component {
+  static propTypes = {
+    component: PropTypes.func,
+    name: PropTypes.string,
+    label: PropTypes.string,
+    blockUnnecessaryRerender: PropTypes.bool
+  }
+
+  static defaultProps = {
+    blockUnnecessaryRerender: true
+  }
+
+  static Group = Group
+
+  static Wraper = Wraper
+
+  static ViewOnly = ({ content, className, placeholder }) => (
+    <ViewOnly className={classNames('view-only', className)}>
+      {content || placeholder || 'ー'}
+    </ViewOnly>
   )
-}
-Field.propTypes = {
-  component: PropTypes.func,
-  name: PropTypes.string,
-  label: PropTypes.string,
-  inline: PropTypes.bool,
-  blockUnnecessaryRerender: PropTypes.bool
-}
-Field.defaultProps = {
-  blockUnnecessaryRerender: true
+
+  static Blank = Blank
+
+  static Divider = () => (
+    <Divider>-</Divider>
+  )
+
+  static Label = ({ children, required }) => (
+    <Label>
+      <Typography bold className="__name">{children}</Typography>
+      {required && (
+        <Typography className="__require" size="small">(required)</Typography>
+      )}
+    </Label>
+  )
+
+  static Inner = Inner
+
+  static Error = ({ message }) => (
+    <ErrorBox className="error-box">
+      <Typography size="small" className="error-message">{message}</Typography>
+    </ErrorBox>
+  )
+
+  render() {
+    const {
+      component: InputComponent,
+      className,
+      name,
+      label,
+      blockUnnecessaryRerender,
+      ...props
+    } = this.props
+    const FieldComponent = blockUnnecessaryRerender ? FormikFastField : FormikField
+
+    return (
+      <Box className={classNames(className, 'field')}>
+        {label && (
+          <Typography
+            className="label"
+          >
+            {label}
+          </Typography>
+        )}
+        <div>
+          <FieldComponent {...props} name={name} component={InputComponent} />
+          <ErrorMessage name={name}>
+            {(message) => message && (
+              <Field.Error message={message} />
+            )}
+          </ErrorMessage>
+        </div>
+      </Box>
+    )
+  }
 }
 
 export default Field
