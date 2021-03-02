@@ -7,6 +7,7 @@ import ModalSection from './modal-section'
 import TypographySection from './typography-section'
 import ButtonSection from './button-section'
 import ToastSection from './toast-section'
+import FormSection from './form-section'
 
 const Content = styled.div`
   padding: 30px 0 100px;
@@ -37,6 +38,7 @@ export default () => (
       <Content>
         <TypographySection />
         <ButtonSection />
+        <FormSection />
         <FetchableTableSection />
         <ToastSection />
         <ModalSection />

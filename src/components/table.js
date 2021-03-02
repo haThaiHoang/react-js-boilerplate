@@ -46,7 +46,7 @@ class Table extends Component {
 
   static Pagination = (props) => (
     <PaginationBox>
-      <p>合計: <b>{props.total}</b></p>
+      <p>Total: <b>{props.total}</b></p>
       <Pagination {...props} />
     </PaginationBox>
   )

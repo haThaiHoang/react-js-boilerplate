@@ -17,18 +17,16 @@ const StyledDiv = styled.div`
 `
 
 export default () => (
-  (
-    <section>
-      <p className="section-title">
-        Button
-      </p>
-      <div className="section-body">
-        <StyledDiv>
-          <Button>Normal</Button>
-          <Button type="primary">Primary</Button>
-          <Button type="primary" loading>Primary - Loading</Button>
-        </StyledDiv>
-      </div>
-    </section>
-  )
+  <section>
+    <p className="section-title">
+      Button
+    </p>
+    <div className="section-body">
+      <StyledDiv>
+        <Button>Normal</Button>
+        <Button type="primary">Primary</Button>
+        <Button type="primary" loading>Primary - Loading</Button>
+      </StyledDiv>
+    </div>
+  </section>
 )
