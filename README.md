@@ -1,5 +1,4 @@
 # React Js Boilerplate
-## BAP IT CO., JSC
 
 ### Environment requirement
 > Operating System: `Ubuntu v18.04`
@@ -44,7 +43,3 @@ If you have problem with hot-reloading file, excute few these command below to f
 echo 100000 | sudo tee /proc/sys/fs/inotify/max_user_watches
 
 And then launch my run command using "-- --reset-cache"
-
-## License
-
-© 2021-present BAP IT CO., JSC
