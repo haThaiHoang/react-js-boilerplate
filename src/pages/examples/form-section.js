@@ -11,6 +11,7 @@ import Radios from '@/components/radios'
 import Select from '@/components/select'
 import FileInput from '@/components/file-input'
 import DatePicker from '@/components/date-picker'
+import Checkbox from '@/components/checkbox'
 import FormikErrorFocuser from '@/components/formik-error-focuser'
 import Format from '@/utils/format'
 
@@ -191,6 +192,18 @@ class FormSection extends Component {
                 name="attachment"
                 component={FileInput}
               />
+            </Field.Inner>
+          </Field.Wraper>
+        </Field.Group>
+        <Field.Group>
+          <Field.Wraper>
+            <Field.Inner>
+              <Field
+                name="acceptTerm"
+                component={Checkbox}
+              >
+                Accept terms and conditions
+              </Field>
             </Field.Inner>
           </Field.Wraper>
         </Field.Group>

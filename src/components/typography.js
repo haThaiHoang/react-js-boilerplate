@@ -50,7 +50,7 @@ const StyledP = styled.p`
     color: ${Colors.PRIMARY};
   }
 
-  &.gray {
+  &.secondary {
     color: #a7a7a7;
   }
 
@@ -65,7 +65,7 @@ const Typography = ({
   link,
   underline,
   primary,
-  gray,
+  secondary,
   center,
   size,
   ...props
@@ -75,7 +75,7 @@ const Typography = ({
       link,
       underline,
       primary,
-      gray,
+      secondary,
       center
     }, 'typography', className)}
     {...props}
@@ -87,7 +87,7 @@ Typography.propTypes = {
   size: PropTypes.string,
   link: PropTypes.bool,
   primary: PropTypes.bool,
-  gray: PropTypes.bool,
+  secondary: PropTypes.bool,
   underline: PropTypes.bool,
   center: PropTypes.bool
 }
