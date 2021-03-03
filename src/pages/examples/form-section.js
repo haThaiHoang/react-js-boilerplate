@@ -40,8 +40,7 @@ const validationSchema = yup.object().shape({
 })
 
 class FormSection extends Component {
-  _onSubmit = () => {
-
+  _onSubmit = (values) => {
   }
 
   _renderForm = ({ handleSubmit }) => (
@@ -82,7 +81,7 @@ class FormSection extends Component {
         </Field.Group>
         <Field.Group>
           <Field.Wraper>
-            <Field.Label required>Gender</Field.Label>
+            <Field.Label>Gender</Field.Label>
             <Field.Inner>
               <Field
                 name="gender"
@@ -121,9 +120,6 @@ class FormSection extends Component {
               />
             </Field.Inner>
           </Field.Wraper>
-          <Field.Blank />
-        </Field.Group>
-        <Field.Group>
           <Field.Wraper>
             <Field.Label required>Email</Field.Label>
             <Field.Inner>
@@ -134,7 +130,6 @@ class FormSection extends Component {
               />
             </Field.Inner>
           </Field.Wraper>
-          <Field.Blank />
         </Field.Group>
         <Field.Group>
           <Field.Wraper>
@@ -162,7 +157,7 @@ class FormSection extends Component {
         </Field.Group>
         <Field.Group>
           <Field.Wraper>
-            <Field.Label required>Description</Field.Label>
+            <Field.Label>Description</Field.Label>
             <Field.Inner>
               <Field
                 name="description"
