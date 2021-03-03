@@ -11,6 +11,7 @@ class ErrorFocus extends Component {
   componentDidUpdate(prevProps) {
     const { isSubmitting, isValidating, errors } = prevProps.formik
     const keys = Object.keys(errors)
+
     if (keys.length > 0 && isSubmitting && !isValidating) {
       const id = `formik-field-${keys[0]}`
       const page = document.getElementById('scrollable-page')
