@@ -7,9 +7,12 @@ import lodash from 'lodash'
 import FileReader from '@/utils/file-reader'
 import { Colors } from '@/theme'
 import Thumbnail from './thumbnail'
+import Button from './button'
 import Clickable from './clickable'
 
 const StyledDiv = styled.div`
+  width: fit-content;
+  
   .remove-button {
     position: absolute;
     right: -10px;
@@ -49,7 +52,8 @@ class FileInput extends Component {
   }
 
   state = {
-    imageURLValue: null
+    imageUrl: null,
+    file: null
   }
 
   _onChange = async (e) => {
@@ -59,19 +63,26 @@ class FileInput extends Component {
     if (onChange) onChange(e)
 
     if (type === 'image') {
-      const imageURLValue = await FileReader.getBase64(file)
+      const imageUrl = await FileReader.getBase64(file)
+
+      this.setState({
+        imageUrl,
+        file
+      })
+
       if (field && form) {
         form.setFieldValue(field.name, {
           file,
-          imageUrl: imageURLValue
+          imageUrl
         })
       }
-      this.setState({
-        imageURLValue
-      })
     }
 
     if (type === 'file') {
+      this.setState({
+        file
+      })
+
       if (field && form) {
         form.setFieldValue(field.name, {
           file
@@ -104,8 +115,9 @@ class FileInput extends Component {
   }
 
   render() {
-    const { field, form, value, className, type, children, ...props } = this.props
-    const { imageURLValue } = this.state
+    const { field, form, value, className, type, ...props } = this.props
+    const { imageUrl, file } = this.state
+
     return (
       <StyledDiv
         {...(field && { id: `formik-field-${field.name}` })}
@@ -117,26 +129,17 @@ class FileInput extends Component {
           >
             <Thumbnail
               name="imageUrl"
-              url={imageURLValue || field?.value || value}
+              url={imageUrl || field?.value || value}
               size={180}
             />
           </Clickable>
         )}
         {type === 'file' && (
-          <Clickable
+          <Button
             onClick={this._onClick}
-            className="file-content-box"
           >
-            {(field?.value || value) && (
-              <Clickable
-                className="remove-button"
-                onClick={this._onRemoveClick}
-              >
-                x
-              </Clickable>
-            )}
-            {children}
-          </Clickable>
+            {file?.name || field?.value || value || 'Select a file'}
+          </Button>
         )}
         <input
           {...props}

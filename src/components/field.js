@@ -29,7 +29,7 @@ const Wraper = styled.div`
 const Label = styled.div`
   display: flex;
   align-items: flex-end;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 
   >.__name {
     color: #849095;

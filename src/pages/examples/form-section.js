@@ -9,6 +9,7 @@ import Input from '@/components/input'
 import TextArea from '@/components/text-area'
 import Radios from '@/components/radios'
 import Select from '@/components/select'
+import FileInput from '@/components/file-input'
 import DatePicker from '@/components/date-picker'
 import ErrorFocuser from '@/components/error-focuser'
 import Format from '@/utils/format'
@@ -41,6 +42,8 @@ const validationSchema = yup.object().shape({
 
 class FormSection extends Component {
   _onSubmit = (values) => {
+    // eslint-disable-next-line no-console
+    console.log(555, values)
   }
 
   _renderForm = ({ handleSubmit }) => (
@@ -162,6 +165,31 @@ class FormSection extends Component {
               <Field
                 name="description"
                 component={TextArea}
+              />
+            </Field.Inner>
+          </Field.Wraper>
+        </Field.Group>
+        <Field.Group>
+          <Field.Wraper>
+            <Field.Label>Avatar</Field.Label>
+            <Field.Inner>
+              <Field
+                type="image"
+                name="avatar"
+                accept="image/x-png,image/gif,image/jpeg"
+                component={FileInput}
+              />
+            </Field.Inner>
+          </Field.Wraper>
+        </Field.Group>
+        <Field.Group>
+          <Field.Wraper>
+            <Field.Label>Attachment</Field.Label>
+            <Field.Inner>
+              <Field
+                type="file"
+                name="attachment"
+                component={FileInput}
               />
             </Field.Inner>
           </Field.Wraper>
