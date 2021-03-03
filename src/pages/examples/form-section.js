@@ -11,7 +11,7 @@ import Radios from '@/components/radios'
 import Select from '@/components/select'
 import FileInput from '@/components/file-input'
 import DatePicker from '@/components/date-picker'
-import ErrorFocuser from '@/components/formik-error-focuser'
+import FormikErrorFocuser from '@/components/formik-error-focuser'
 import Format from '@/utils/format'
 
 const StyledDiv = styled.div`
@@ -43,12 +43,12 @@ const validationSchema = yup.object().shape({
 class FormSection extends Component {
   _onSubmit = (values) => {
     // eslint-disable-next-line no-console
-    console.log(555, values)
+    console.log('VALUES', values)
   }
 
   _renderForm = ({ handleSubmit }) => (
     <Form className="form">
-      <ErrorFocuser />
+      <FormikErrorFocuser />
       <div className="field-groups">
         <Field.Group>
           <Field.Wraper>
@@ -198,7 +198,6 @@ class FormSection extends Component {
       <div className="action-box">
         <Button
           type="primary"
-          // loading={studentsStore.type === TYPES.CREATE_STUDENT}
           className="submit-button"
           onClick={handleSubmit}
           htmlType="submit"
