@@ -4,6 +4,7 @@ import { Table as AntdTable, Pagination } from 'antd'
 import styled from 'styled-components'
 
 const StyledTable = styled(AntdTable)`
+  // Put your custom styles for table here
   .ant-table {
     .ant-table-container {
       .ant-table-content {

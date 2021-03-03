@@ -33,14 +33,6 @@ export default class Misc {
 
   static getImageURL = (name) => name && `${Configs.API_URL}/${name}`
 
-  static getUrlVars() {
-    const vars = {}
-    window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m, key, value) => {
-      vars[key] = value
-    })
-    return vars
-  }
-
   static getErrorJsonBody = async (error) => {
     if (isFetchError(error)) {
       error = await getFetchError(error)
