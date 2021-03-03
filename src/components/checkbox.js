@@ -91,7 +91,10 @@ class Checkbox extends Component {
     const { field, form, checked, label, className, ...props } = this.props
 
     return (
-      <StyledLabel className="check-box">
+      <StyledLabel
+        className="check-box"
+        {...(field && { id: `formik-field-${field.name}` })}
+      >
         <input
           {...props}
           type="checkbox"

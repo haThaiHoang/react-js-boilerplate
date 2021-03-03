@@ -48,6 +48,7 @@ class DatePicker extends Component {
     return (
       <StyledDiv
         className={classnames({ error: lodash.get(form, `errors.${field?.name}`) }, className)}
+        {...(field && { id: `formik-field-${field.name}` })}
       >
         <AntDatePicker
           {...props}

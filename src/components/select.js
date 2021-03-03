@@ -84,6 +84,7 @@ class Select extends Component {
     return (
       <StyledSelect
         {...props}
+        {...(field && { id: `formik-field-${field.name}` })}
         value={field?.value || value}
         onChange={this._onChange}
         className={classnames({

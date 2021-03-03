@@ -57,6 +57,7 @@ class Input extends Component {
       <StyledInput
         {...field}
         {...props}
+        {...(field && { id: `formik-field-${field.name}` })}
         value={field?.value || value}
         className={classnames({ error: lodash.get(form, `errors.${field?.name}`) }, className, 'input')}
         onChange={this._onChange}

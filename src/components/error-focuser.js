@@ -14,15 +14,12 @@ class ErrorFocus extends Component {
 
     if (keys.length > 0 && isSubmitting && !isValidating) {
       const id = `formik-field-${keys[0]}`
-      const page = document.getElementById('scrollable-page')
       const errorElement = document.getElementById(id)
 
       if (errorElement) {
-        const { y } = errorElement.getBoundingClientRect()
-
-        page.scroll({
-          top: page.scrollTop + y - 200,
-          behavior: 'smooth'
+        errorElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
         })
       }
     }

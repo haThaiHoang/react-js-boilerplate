@@ -58,6 +58,7 @@ class TextArea extends Component {
       <StyledTextArea
         {...field}
         {...props}
+        {...(field && { id: `formik-field-${field.name}` })}
         value={field?.value || value}
         className={classnames({ error: lodash.get(form, `errors.${field?.name}`) }, className, 'text-area')}
         onChange={this._onChange}
