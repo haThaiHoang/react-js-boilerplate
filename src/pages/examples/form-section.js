@@ -11,7 +11,7 @@ import Radios from '@/components/radios'
 import Select from '@/components/select'
 import FileInput from '@/components/file-input'
 import DatePicker from '@/components/date-picker'
-import ErrorFocuser from '@/components/error-focuser'
+import ErrorFocuser from '@/components/formik-error-focuser'
 import Format from '@/utils/format'
 
 const StyledDiv = styled.div`
