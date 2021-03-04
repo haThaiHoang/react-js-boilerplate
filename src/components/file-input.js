@@ -60,6 +60,8 @@ class FileInput extends Component {
     const { field, form, onChange, type } = this.props
     const file = e.target.files[0]
 
+    if (!file) return
+
     if (onChange) onChange(e)
 
     if (type === 'image') {
