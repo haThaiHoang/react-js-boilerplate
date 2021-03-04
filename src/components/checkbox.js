@@ -6,6 +6,12 @@ import classnames from 'classnames'
 
 const StyledCheckbox = styled(AntdCheckbox)`
   // Put your custom styles for checkbox here
+  
+  span {
+    &:last-child {
+      user-select: none;
+    }
+  }
 `
 
 class Checkbox extends Component {

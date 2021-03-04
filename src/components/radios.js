@@ -6,6 +6,14 @@ import { Radio } from 'antd'
 
 const StyledRadioGroup = styled(Radio.Group)`
   // Put your custom styles for Radios here
+  
+  .ant-radio-wrapper {
+    span {
+      &:last-child {
+        user-select: none;
+      }
+    }
+  }
 `
 
 class Radios extends Component {
