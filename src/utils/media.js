@@ -1,5 +1,5 @@
 const SIZE = {
-  XXL: 1440, // DESKTOP L
+  XXL: 1600, // DESKTOP L
   XL: 1200, // DESKTOP M
   LG: 992, // TABLET L
   MD: 768, // TABLET M
