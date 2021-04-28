@@ -11,7 +11,10 @@ function getAppConfig(env) {
 
   data = lodash.assign(defaultData, data)
 
-  return data
+  return {
+    ...data,
+    ENV: env
+  }
 }
 
 module.exports = (env) => {
