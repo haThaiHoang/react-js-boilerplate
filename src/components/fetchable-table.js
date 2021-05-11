@@ -73,7 +73,7 @@ class FetchableTable extends Component {
     const { autoFetchOnMount, defaultSort } = this.props
 
     if (autoFetchOnMount) {
-      this._fetchData(0, defaultSort && `${defaultSort.key}|${defaultSort.type}`)
+      this._fetchData(1, defaultSort && `${defaultSort.key}|${defaultSort.type}`)
     }
   }
 
@@ -81,7 +81,7 @@ class FetchableTable extends Component {
     const { action, onFetched, payload, limit } = this.props
     const { newPayload } = this.state
     const result = await action({
-      offset: limit ? page * limit : (page) * Configs.PAGINATION_PAGE_SIZE,
+      page,
       limit: limit || Configs.PAGINATION_PAGE_SIZE,
       ...payload,
       ...newPayload,
@@ -102,18 +102,18 @@ class FetchableTable extends Component {
   fetchDataWithNewPayload = async (newPayload = {}, sort) => {
     this.state.newPayload = newPayload
 
-    await this._fetchData(0, sort)
+    await this._fetchData(1, sort)
   }
 
   _onPaginationChange = (page) => {
     const { sort } = this.props
     const sortParts = (sort || '').split('|')
 
-    this._fetchData(page - 1, sort && `${sortParts[0]}|${sortParts[1]}`)
+    this._fetchData(page, sort && `${sortParts[0]}|${sortParts[1]}`)
   }
 
   _onSortChange = (column, sortDirection) => {
-    this._fetchData(0, `${column}|${sortDirection === 'asc' ? 'desc' : 'asc'}`)
+    this._fetchData(1, `${column}|${sortDirection === 'asc' ? 'desc' : 'asc'}`)
   }
 
   _getColumns = memoizeOne((sort) => {

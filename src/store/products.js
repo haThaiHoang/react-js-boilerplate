@@ -48,7 +48,7 @@ export {
 export default ProductsStore.create({
   products: {
     item: [],
-    page: 0,
+    page: 1,
     total: 0
   }
 })
