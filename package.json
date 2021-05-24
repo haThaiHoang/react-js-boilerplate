@@ -25,7 +25,6 @@
     "memoize-one": "5.2.1",
     "mobx": "6.3.0",
     "mobx-react": "7.1.0",
-    "mobx-react-router": "4.1.0",
     "mobx-state-tree": "5.0.1",
     "moment": "2.29.1",
     "object-to-formdata": "4.1.0",

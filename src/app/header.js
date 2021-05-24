@@ -9,6 +9,7 @@ import classnames from 'classnames'
 import Storage from '@/utils/storage'
 import Clickable from '@/components/clickable'
 import { Colors } from '@/theme'
+import { history } from '@/store'
 
 const HeaderContainer = styled.header`
   width: 100%;
@@ -110,21 +111,18 @@ const HeaderContainer = styled.header`
 
 @withTranslation('common')
 @inject((stores) => ({
-  uiStore: stores.ui,
-  routingStore: stores.routing
+  uiStore: stores.ui
 }))
 class Header extends Component {
   static propTypes = {
-    uiStore: PropTypes.object,
-    routingStore: PropTypes.object
+    uiStore: PropTypes.object
   }
 
   _onLogout = (e) => {
     e.preventDefault()
-    const { routingStore } = this.props
 
     Storage.remove('ACCESS_TOKEN')
-    routingStore.replace('/login')
+    history.replace('/login')
   }
 
   _onChangeLanguage = (language) => {

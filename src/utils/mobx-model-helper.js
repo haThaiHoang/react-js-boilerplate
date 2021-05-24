@@ -5,7 +5,7 @@ import Toast from '@/components/toast'
 import Misc from '@/utils/misc'
 import Request from '@/utils/request'
 import ERROR_MESSAGES from '@/translations/error-messages'
-import { routingStore } from '@/store'
+import { history } from '@/store'
 import Storage from './storage'
 
 const Model = types.model('MobxModelHelper', {
@@ -66,7 +66,7 @@ const Model = types.model('MobxModelHelper', {
         if (['TOKEN_EXPIRED', 'TOKEN_INVALID', 'PERMISSION_DENIED'].includes(error.statusText)) {
           Request.removeAccessToken()
           Storage.remove('ACCESS_TOKEN')
-          routingStore.replace('/login')
+          history.replace('/login')
 
           return { success: false }
         }
