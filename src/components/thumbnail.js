@@ -11,17 +11,22 @@ const Image = styled.div`
   background-position: center;
   background-size: cover;
   background-color: lightgray;
-  
+
   &.rounded {
     border-radius: 50%;
   }
+
+  &.contain {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 `
 
-const Thumbnail = ({ url, size, style, placeholderUrl, rounded, className, ...props }) => (
+const Thumbnail = ({ url, size, style, placeholderUrl, rounded, className, contain, ...props }) => (
   <Image
     style={{ backgroundImage: `url(${url || placeholderUrl || Images.NO_IMAGE})`, ...style }}
     {...props}
-    className={classNames(className, { rounded })}
+    className={classNames(className, { rounded, contain: url })}
     size={size || 40}
     alt=""
   />
@@ -30,7 +35,8 @@ Thumbnail.propTypes = {
   url: PropTypes.string,
   placeholderUrl: PropTypes.string,
   size: PropTypes.number,
-  rounded: PropTypes.bool
+  rounded: PropTypes.bool,
+  contain: PropTypes.bool
 }
 
 export default Thumbnail
