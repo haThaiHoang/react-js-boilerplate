@@ -103,6 +103,7 @@ class Confirmable extends Component {
       <StyledModal
         visible={visible}
         centered
+        destroyOnClose
         onCancel={this._onCancel}
         footer={null}
       >
