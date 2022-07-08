@@ -26,7 +26,7 @@
     "mobx": "6.3.2",
     "mobx-react": "7.2.0",
     "mobx-state-tree": "5.0.2",
-    "moment": "2.29.1",
+    "moment": "2.29.4",
     "object-to-formdata": "4.1.0",
     "prop-types": "15.7.2",
     "react": "17.0.2",
